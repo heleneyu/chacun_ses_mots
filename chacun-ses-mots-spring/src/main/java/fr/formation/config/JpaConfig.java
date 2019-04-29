@@ -5,7 +5,6 @@ import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 
 import org.apache.commons.dbcp2.BasicDataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,9 +19,9 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@PropertySource("classpath:data-source.properties")
+@PropertySource("classpath:data-sources.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories("fr.formation.dao")
+@EnableJpaRepositories("fr.formation.projet")
 public class JpaConfig {
 	@Autowired
 	private Environment env;

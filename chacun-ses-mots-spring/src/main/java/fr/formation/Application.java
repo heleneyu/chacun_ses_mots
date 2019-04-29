@@ -2,6 +2,7 @@ package fr.formation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import fr.formation.model.Question;
 import fr.formation.projet.IDAOJoueur;
 import fr.formation.projet.IDAOPartie;
 import fr.formation.projet.IDAOQuestion;
@@ -18,6 +19,8 @@ public class Application {
 	private IDAOPartie daoPartie;
 
 	public void run(String[] args) {
-
+for (Question q : daoQuestion.findAll()) {
+	System.out.println(q.getDonnee());
+}
 	}
 }
