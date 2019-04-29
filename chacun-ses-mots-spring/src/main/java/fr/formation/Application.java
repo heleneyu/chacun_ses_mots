@@ -2,9 +2,12 @@ package fr.formation;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import fr.formation.model.Joueur;
+import fr.formation.model.Partie;
 import fr.formation.model.Question;
 import fr.formation.model.Reponse;
 import fr.formation.projet.IDAOJoueur;
@@ -28,6 +31,12 @@ public class Application {
 		}
 	}
 	
+	public static void initialiserPartie(int nbJoueur, int nbTour, int modeJeu, int modeDonnee, IDAOReponse daoReponse, IDAOQuestion daoQuestion, IDAOPartie daoPartie) {
+
+		Partie partie = Partie.creerPartie(modeDonnee, nbJoueur, nbTour, modeJeu, 0);
+		daoPartie.save(partie);
+	}
+	
 	public static ArrayList<Question> melangerPaquetQuestion(IDAOQuestion daoQuestion) {
 		// Creation du paquet de questions
 		ArrayList<Question> paquetQuestion = new ArrayList<Question>();
@@ -48,4 +57,27 @@ public class Application {
 		Collections.shuffle(paquetReponse);
 		return paquetReponse;
 	}
+	
+	
+	public static boolean ajouterJoueurAPartie(String pseudo, String mdp, IDAOJoueur daoPersonnes, Partie p) {
+		Optional<Joueur> j = daoPersonnes.findByPseudoAndMotDePasse(pseudo, mdp);
+		if(j.isPresent()) {
+			p.getJoueurs().add(j.get());
+			return true;
+		}
+		return false;
+	}
+	
+	public static Joueur inscriptionJoueur(IDAOJoueur daoPersonnes, String nom, String prenom, String pseudo, String mdp) {
+		Joueur j = new Joueur();
+		j.setNom(nom);
+		j.setPrenom(prenom);
+		j.setPseudo(pseudo);
+		j.setMotDePasse(mdp);
+		j.setType("joueur");
+		daoPersonnes.save(j);
+		return j;
+
+	}
+	
 }
