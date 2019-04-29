@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="csmStyle.css">
+    <title>Chacun ses mots - Tour</title>
+</head>
+
+<body>
+    <header id ="tour">
+        <nav>
+            <div>
+                <a href="menu.html">Menu</a></div>
+            <div>
+                <a href="connexion.html">Connexion</a></div>
+            <div>
+                <a href="inscription.html">inscription</a></div>
+        </nav>
+        <h1>CHACUN SES MOTS</h1>
+    </header>
+    <div class="container">
+        <div class="rowJoueur">
+            <div class="joueur">Joueur A</div>
+        </div>
+        <div class="question">
+            <div type="text">
+                J'aime beaucoup ___.
+            </div>
+        </div>
+        <div class="main">
+            <ul>
+                <li>
+                    <div class="carteReponse" cid="1">Unlock !</div>
+                </li>
+                <li>
+                    <div class="carteReponse" cid="2">les chats</div>
+                </li>
+                <li>
+                    <div class="carteReponse" cid="3">les cookies</div>
+                </li>
+                <li>
+                    <div class="carteReponse" cid="4">JAVA</div>
+                </li>
+            </ul>
+        </div>
+        <div class="reponsePerso">
+            <input type="text" id="reponselibreinput">
+            </input>
+        </div>
+    </div>
+    <div class="envoyer">
+        <form action="csmVoteJoueur.html">
+            <input type="hidden" name="reponselibre" id="reponselibre" />
+            <input type="hidden" name="carteid" id="carteid" />
+            <input style="display:none;" type="submit" value="ENVOYER" id="tour-submit-button">
+        </form>
+    </div>
+    <script src="csm-player.js"></script>
+    <footer>
+        <ul>
+            <li>
+                <a href="csmVoteJoueur.html">Vote</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+
+</html>
