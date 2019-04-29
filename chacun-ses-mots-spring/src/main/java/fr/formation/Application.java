@@ -1,8 +1,10 @@
 package fr.formation;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -31,12 +33,19 @@ public class Application {
 		}
 	}
 	
-	public static void initialiserPartie(int nbJoueur, int nbTour, int modeJeu, int modeDonnee, IDAOReponse daoReponse, IDAOQuestion daoQuestion, IDAOPartie daoPartie) {
+	public static Partie initialiserPartie(int nbJoueur, int nbTour, int modeJeu, int modeDonnee, IDAOReponse daoReponse, IDAOQuestion daoQuestion, IDAOPartie daoPartie) {
 
 		Partie partie = Partie.creerPartie(modeDonnee, nbJoueur, nbTour, modeJeu, 0);
-		daoPartie.save(partie);
+		return daoPartie.save(partie);
 	}
 	
+	
+	public String givenUsingPlainJava_whenGeneratingRandomStringUnbounded_thenCorrect() {
+	    byte[] array = new byte[7]; // length is bounded by 7
+	    new Random().nextBytes(array);
+	    String generatedString = new String(array, Charset.forName("UTF-8"));
+	    return generatedString;
+	}
 	public static ArrayList<Question> melangerPaquetQuestion(IDAOQuestion daoQuestion) {
 		// Creation du paquet de questions
 		ArrayList<Question> paquetQuestion = new ArrayList<Question>();
