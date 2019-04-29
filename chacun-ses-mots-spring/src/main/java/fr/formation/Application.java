@@ -19,8 +19,8 @@ public class Application {
 	private IDAOPartie daoPartie;
 
 	public void run(String[] args) {
-for (Question q : daoQuestion.findAll()) {
-	System.out.println(q.getDonnee());
-}
+		for (Question q : daoQuestion.findAll()) {
+			System.out.println(q.getDonnee());
+		}
 	}
 }
