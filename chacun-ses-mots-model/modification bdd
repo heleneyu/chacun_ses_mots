@@ -1,0 +1,16 @@
+Modification BDD
+
+CLASSE JOUEUR
+ajouter lien vers une liste de réponses
+ajouter lien vers liste de questions (?)
+ajouter score
+ajouter tour id
+
+CLASSE REPONSE
+ajouter un lien vers Joueur
+
+CLASSE TOUR
+creer la classe
+
+MODIFICATION JAVA MODEL
+supprimer la classe Donnée + supprimer son appel dans le .xml

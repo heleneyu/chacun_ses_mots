@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="NomPersistenceUnit"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>fr.formation.model.Question</class>
+		<class>fr.formation.model.Reponse</class>
+		<class>fr.formation.model.Joueur</class>
+		<class>fr.formation.model.Partie</class>
+		<class>fr.formation.model.ReponsesEcrites</class>
+
+		<properties>
+
+			<property name="hibernate.connection.url"
+				value="jdbc:mysql://localhost:3306/chacun_ses_mots?serverTimezone=UTC" />
+			<property name="hibernate.connection.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.user" value="root" />
+			<property name="hibernate.connection.password" value="" />
+			<!--Permet d'exécuter les requêtes DDL pour la génération de la base de 
+				données -->
+			<!--Valeurs possibles : validate, update, create, create-drop -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!--On utilise le moteur innoDB -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<!--On imprime les requêtes SQL générées par Hibernatedans la console -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="true" />
+			<property name="hibernate.cache.region.factory_class"
+				value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory" />
+			<property name="hibernate.cache.use_query_cache"
+				value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
