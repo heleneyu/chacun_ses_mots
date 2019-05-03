@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Chacun ses mots - Accueil</title>
+<link rel="stylesheet" href="csmStyle.css">
+</head>
+
+<body>
+	<section>
+		<div th:fragment="contenu">
+			<div>
+				<a href="csmConnexion">Connexion</a>
+			</div>
+			<div>
+				<a href="csmInscription">Inscription</a>
+			</div>
+			<form action="csmMenu" class="form">
+				<h2 id="configurer">Jouer</h2>
+				<div>
+					<button type="submit" value="REJOINDRE">Jouer</button>
+				</div>
+			</form>
+
+			<div>
+				<button type="submit" value="CRÉER LA PARTIE">CRÉER LA
+					PARTIE</button>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
