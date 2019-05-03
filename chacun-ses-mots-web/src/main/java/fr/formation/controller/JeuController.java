@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 //@Controller
 public class JeuController {
 	
-	@GetMapping
-	public String tourJoueur(@PathVariable int idPartie,Model model) {
+	@GetMapping({"tour"})
+	public String tourJoueur(@PathVariable int idPartie, Model model) {
 		return "csmTourCase";
 	}
 

@@ -1,6 +1,7 @@
 package fr.formation.controller;
 
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,23 +17,31 @@ import fr.formation.projet.IDAOPartie;
 
 @Controller
 public class MenuController {
-	
+
 	@Autowired
 	private IDAOPartie daoPartie;
-	
-	@GetMapping({"/menu"})
+
+	@GetMapping({ "/menu" })
 	public String menu(Model model) {
 		return "csmMenu";
 	}
-	
-	@PostMapping({"/menu"})
+
+	@PostMapping({ "/menu" })
 	public String menu(@Valid @ModelAttribute Partie p, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			
+
 			return "csmMenu";
 		}
 		daoPartie.save(p);
 		return "redirect:/setgame";
+	}
+
+	@GetMapping({"/join","/rejoindre"})
+	public String rejoindre(int id, Model model) {
+		if(daoPartie.findById(id).isPresent()) {
+		return "redirect:/tour";
+				}
+		return "csmHome";
 	}
 
 }
