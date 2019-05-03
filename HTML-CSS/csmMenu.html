@@ -7,31 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chacun ses mots - Accueil</title>
     <link rel="stylesheet" href="csmStyle.css">
+        <link rel="stylesheet" href="csmNavStyle.css">
 </head>
 
 <body>
+  <nav>
+      <ul>
+          <li>
+
+                  <a href="csmConnexion.html">Connexion</a>
+
+          </li>
+          <li>
+
+                  <a href="csmInscription.html">Inscription</a>
+
+          </li>
+          <li>
+
+                  <a href="csmProfil.html">Profil de joueur</a>
+
+          </li>
+      </ul>
+  </nav>
     <section>
     <div class="container">
 
-                <nav>
-                    <ul>
-                        <li>
-                            <div>
-                                <a href="csmConnexion.html">Connexion</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="csmInscription.html">Inscription</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="csmProfil.html">Profil de joueur</a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
+
 
                     <form action="csmCreerPartie"  class="form">
                             <h2 id="configurer">Rejoignez une partie !</h2>
@@ -55,11 +57,11 @@
                                 <label for="modeA">Interface</label>
                                 <select name="modeA" id="modeA" form="creerPartie">
                                     <label for=""></label>
-                                    
+
                                     <option value="1">Un écran</option>
                                     <option value="2">Multi-écran</option>
                                 </select>
-                           
+
                                 <label for="nbJoueurs">Nombre de Joueurs</label>
                                 <select name="nbJoueurs" id="nbJoueurs" form="creerPartie">
                                     <option value="1">1</option>
@@ -73,7 +75,7 @@
                                     <option value="9">9</option>
                                     <option value="10">10</option>
                                 </select>
-                            
+
                                     <label for="nbTour">Nombre de tours</label>
                                     <select name="nbTours" id="nbTours" form="creerPartie">
                                         <option value="1">1</option>
@@ -96,15 +98,15 @@
                                     <option value="3">Réponses Cartes et réponses libres</option>
                                 </select>
                             </div>
-                            
-                        
+
+
                         <div>
                         <button type="submit" value="CRÉER LA PARTIE">CRÉER LA PARTIE
                             </button>
                         </div>
-                    
-                   
-                
+
+
+
             </form>
             </div>
     </div>
