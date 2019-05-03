@@ -3,113 +3,86 @@
 	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chacun ses mots - Menu</title>
-    <link rel="stylesheet" href="csmStyle.css">
+<title>Chacun ses mots - Menu</title>
 </head>
 
 <body>
-    <section>
-    <div th:fragment="contenu">
+	<section>
+		<div th:fragment="contenu">
 
-                <nav>
-                    <ul>
-                        <li>
-                            <div>
-                                <a href="csmConnexion.html">Connexion</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="csmInscription.html">Inscription</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="csmProfil.html">Profil de joueur</a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
+			<form action="csmCreerPartie" class="form">
+				<h2 id="configurer">Rejoignez une partie !</h2>
+				<div>
+					<input type="text" id="rp" name="rp"
+						placeholder="Entrez l'ID de la partie">
+				</div>
+				<div>
+					<button type="submit" value="REJOINDRE">REJOINDRE</button>
+				</div>
+			</form>
 
-                    <form action="csmCreerPartie"  class="form">
-                            <h2 id="configurer">Rejoignez une partie !</h2>
-                    <div>
-                        <input type="text" id="rp" name="rp" placeholder="Entrez l'ID de la partie">
-                    </div>
-                        <div>
-                        <button type="submit" value="REJOINDRE">REJOINDRE</button>
-                        </div>
-                    </form>
+			<header> </header>
 
-            <header> </header>
+			<h2 id="configurer">Commencez une nouvelle partie</h2>
+			<div>
+				<form action="csmCreerPartie.html" class="form" id="creerPartie">
+					<div>
+						<input type="text" placeholder="Nom de la partie"></input>
+					</div>
+					<div>
+						<label for="modeA">Interface</label> <select name="modeA"
+							id="modeA" form="creerPartie">
+							<label for=""></label>
 
-                <h2 id="configurer">Commencez une nouvelle partie</h2>
-                <div>
-                    <form action="csmCreerPartie.html" class="form" id="creerPartie">
-                            <div>
-                                <input type="text" placeholder="Nom de la partie"></input>
-                            </div>
-                            <div>
-                                <label for="modeA">Interface</label>
-                                <select name="modeA" id="modeA" form="creerPartie">
-                                    <label for=""></label>
-                                    
-                                    <option value="1">Un Ã©cran</option>
-                                    <option value="2">Multi-Ã©cran</option>
-                                </select>
-                           
-                                <label for="nbJoueurs">Nombre de Joueurs</label>
-                                <select name="nbJoueurs" id="nbJoueurs" form="creerPartie">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            
-                                    <label for="nbTour">Nombre de tours</label>
-                                    <select name="nbTours" id="nbTours" form="creerPartie">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-                            <div>
-                                <label for="modeJeu">Mode de Jeu</label>
-                                <select name="modeJeu" id="modeJeu" form="creerPartie">
-                                    <option value="1">RÃ©ponses Cartes</option>
-                                    <option value="2">RÃ©ponses libres</option>
-                                    <option value="3">RÃ©ponses Cartes et rÃ©ponses libres</option>
-                                </select>
-                            </div>
-                            
-                        
-                        <div>
-                        <button type="submit" value="CRÃ‰ER LA PARTIE">CRÃ‰ER LA PARTIE
-                            </button>
-                        </div>
-                    
-                   
-                
-            </form>
-            </div>
-    </div>
-</section>
+							<option value="1">Un écran</option>
+							<option value="2">Multi-écran</option>
+						</select> <label for="nbJoueurs">Nombre de Joueurs</label> <select
+							name="nbJoueurs" id="nbJoueurs" form="creerPartie">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select> <label for="nbTour">Nombre de tours</label> <select
+							name="nbTours" id="nbTours" form="creerPartie">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<div>
+						<label for="modeJeu">Mode de Jeu</label> <select name="modeJeu"
+							id="modeJeu" form="creerPartie">
+							<option value="1">Réponses Cartes</option>
+							<option value="2">Réponses libres</option>
+							<option value="3">Réponses Cartes et réponses libres</option>
+						</select>
+					</div>
+
+
+					<div>
+						<button type="submit" value="CRÉER LA PARTIE">CRÉER LA
+							PARTIE</button>
+					</div>
+
+
+
+				</form>
+			</div>
+		</div>
+	</section>
 </body>
 
 </html>
