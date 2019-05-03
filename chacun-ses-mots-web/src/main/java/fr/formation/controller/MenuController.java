@@ -10,9 +10,9 @@ import fr.formation.projet.IDAOPartie;
 
 @Controller
 public class MenuController {
-//	
-//	@Autowired
-//	private IDAOPartie daoPartie;
+	
+	@Autowired
+	private IDAOPartie daoPartie;
 	
 	@GetMapping({"/menu"})
 	public String menu(Model model) {
