@@ -30,25 +30,28 @@ public class WebConfig implements WebMvcConfigurer {
 		viewResolver.setSuffix(".html");
 		return viewResolver;
 	}
-	
+
 	@Bean
 	public SpringResourceTemplateResolver templateResolver() {
-		SpringResourceTemplateResolver templateResolver=new SpringResourceTemplateResolver();
+		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/templates/");
-	templateResolver.setSuffix(".html");
-	return templateResolver;}
-	
+		templateResolver.setSuffix(".html");
+		return templateResolver;
+	}
+
 	@Bean
 	public ThymeleafViewResolver viewResolver(SpringTemplateEngine templateEngine) {
-		ThymeleafViewResolver viewResolver=new ThymeleafViewResolver();
-	viewResolver.setTemplateEngine(templateEngine);
-	return viewResolver;}
-	
+		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+		viewResolver.setTemplateEngine(templateEngine);
+		return viewResolver;
+	}
+
 	@Bean
-public SpringTemplateEngine templateEngine(SpringResourceTemplateResolver templateResolver) {
-		SpringTemplateEngine templateEngine=new SpringTemplateEngine();
+	public SpringTemplateEngine templateEngine(SpringResourceTemplateResolver templateResolver) {
+		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
 		templateEngine.setTemplateResolver(templateResolver);
-	templateEngine.setEnableSpringELCompiler(true);
-	return templateEngine;}
+		templateEngine.setEnableSpringELCompiler(true);
+		return templateEngine;
+	}
 
 }
