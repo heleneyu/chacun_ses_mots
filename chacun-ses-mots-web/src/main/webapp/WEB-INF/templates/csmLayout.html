@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:fragment="layout(title, contenu)">
+<head>
+<title th:replace="${title}">Super site de vente en ligne</title>
+<base href="/gopra-web/" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<nav th:replace="navigation.html"></nav>
+	<h1 th:include="${title}" class="container">Gopra shopping center</h1>
+	<div th:include="${contenu}" class="container"></div>
+</body>
+</html>
