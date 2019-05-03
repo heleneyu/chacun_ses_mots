@@ -10,63 +10,44 @@
 </head>
 
 <body>
-    <header id ="tour">
-        <nav>
-            <div>
-                <a href="menu.html">Menu</a></div>
-            <div>
-                <a href="connexion.html">Connexion</a></div>
-            <div>
-                <a href="inscription.html">inscription</a></div>
-        </nav>
-        <h1>CHACUN SES MOTS</h1>
-    </header>
+
     <div class="container">
-        <div class="rowJoueur">
-            <div class="joueur">Joueur A</div>
-        </div>
+
+            <h1>Joueur A</h1>
+<header> </header>
         <div class="question">
             <div type="text">
                 J'aime beaucoup ___.
             </div>
         </div>
-        <div class="main">
-            <ul>
-                <li>
                     <div class="carteReponse" cid="1">Unlock !</div>
-                </li>
-                <li>
+
                     <div class="carteReponse" cid="2">les chats</div>
-                </li>
-                <li>
+
                     <div class="carteReponse" cid="3">les cookies</div>
-                </li>
-                <li>
+
                     <div class="carteReponse" cid="4">JAVA</div>
-                </li>
-            </ul>
+
+<section>
+
+        <form action="csmVoteJoueur.html" class="form">
+<div>
+          <input type="text" id="reponselibreinput" placeholder="OU entrez votre saisie">
         </div>
-        <div class="reponsePerso">
-            <input type="text" id="reponselibreinput">
-            </input>
-        </div>
-    </div>
-    <div class="envoyer">
-        <form action="csmVoteJoueur.html">
-            <input type="hidden" name="reponselibre" id="reponselibre" />
-            <input type="hidden" name="carteid" id="carteid" />
-            <input style="display:none;" type="submit" value="ENVOYER" id="tour-submit-button">
+            <button type="submit" value="ENVOYER" id="tour-submit-button">ENVOYER</button>
+
         </form>
-    </div>
-    <script src="csm-player.js"></script>
-    <footer>
-        <ul>
-            <li>
+
+    <div>
                 <a href="csmVoteJoueur.html">Vote</a>
-            </li>
-        </ul>
-    </footer>
+
+    </div>
+
+
+          </section>
+              </div>
 </body>
 
 
 </html>
+    <script src="csm-player.js"></script>
