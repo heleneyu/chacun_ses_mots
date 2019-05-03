@@ -43,5 +43,23 @@ public class MenuController {
 				}
 		return "csmHome";
 	}
+	
+	@GetMapping({"/setgame"})
+	public String setGame(Model model) {
+		if(true) {
+			return "csmConnexion";
+		}
+		
+		return "redirect:/tour";
+	}
+	
+	@PostMapping({"/setgame"})
+	public String setGame2(Model model) {
+		if(true) {
+			return "csmConnexion";
+		}
+		
+		return "redirect:/tour";
+	}
 
 }
