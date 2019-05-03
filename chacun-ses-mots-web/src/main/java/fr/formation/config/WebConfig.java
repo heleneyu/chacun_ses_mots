@@ -17,8 +17,8 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @ComponentScan("fr.formation")
 public class WebConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/css/**").addResourceLocations("/static/");
-		registry.addResourceHandler("/images/**").addResourceLocations("/static/");
+		registry.addResourceHandler("/css/**").addResourceLocations("WEB-INF/static/");
+		registry.addResourceHandler("/images/**").addResourceLocations("WEB-INF/static/");
 
 	}
 

@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @PropertySource("classpath:data-source.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories("fr.formation.dao")
+@EnableJpaRepositories("fr.formation.projet")
 public class JpaConfig {
 	// acces bdd
 	

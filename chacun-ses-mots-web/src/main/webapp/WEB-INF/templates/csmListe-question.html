@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout.html :: layout(~{::title}, ~{::contenu})}">
+<head>
+<base href="/gopra-web/"/>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+<title>Liste des questions</title>
+</head>
+<body>
+	<div th:fragment="contenu" class="container">
+		<h1>Liste des questions</h1>
+		<a href="csmAjouter-question" class="btn btn-warning">Ajouter une question</a>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Question</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tr th:each="question : ${questions}">
+				<td th:text="${question.getId()}"></td>
+				<td><a th:href="@{csmQuestion/{questionId}(questionId=${question.id})}"
+					th:text="${question.getDonnee()}"></a></td>
+				<td><a th:href="@{csmSupprimer-question/{questionId}(questionId=${question.id})}"
+					 class="btn btn-warning">Supprimer</a>
+				<td><a th:href="@{csmModifier-question/{questionId}(questionId=${question.id})}" 
+					class="btn btn-info">Modifier</a></td>
+			</tr>
+		</table>
+		<a href="csmHome" class="btn btn-warning">Retourner à l'écran d'accueil</a>
+	</div>
+</body>
+</html>
