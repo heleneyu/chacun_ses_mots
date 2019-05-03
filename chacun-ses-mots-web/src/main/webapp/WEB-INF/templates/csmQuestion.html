@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout.html :: layout(~{::title}, ~{::contenu})}">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 <head>
 <title>question</title>
 </head>
 <body>
 	<div th:fragment="contenu" class="container">
-		<h1 th:value="'question' + ${question.id}"></h1>
-		<h2>[[${question.donnee}]]</h2>
+		<h1 th:value="'question' + ${question?.id}"></h1>
+		<h2>[[${question?.donnee}]]</h2>
 		<a href="csmListe-question" class="btn btn-info">Liste des
 			questions</a>
 	</div>
