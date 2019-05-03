@@ -7,11 +7,19 @@
   
   
   <dependencies>
+  <!-- 
+  <dependency>
+  	<groupId>fr.formation</groupId>
+	<artifactId>chacuns-ses-mots-spring</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+  </dependency>
+  -->
   <dependency>
     <groupId>fr.formation.projet</groupId>
   <artifactId>chacun-ses-mots-data-jpa</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   </dependency>
+
   
   <dependency>
     <groupId>javax.servlet</groupId>
