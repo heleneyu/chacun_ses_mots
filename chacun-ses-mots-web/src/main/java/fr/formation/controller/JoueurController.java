@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import fr.formation.model.Joueur;
 import fr.formation.projet.IDAOJoueur;
 
 @Controller
-public class Joueur {
+public class JoueurController {
 
 	@Autowired
 	private IDAOJoueur daoJoueur;
@@ -32,7 +33,7 @@ public class Joueur {
 			return "csmConnexion";
 		}
 		
-//		daoJoueur.save(j);
+		daoJoueur.save(j);
 		return "redirect:/csmJoueur";
 	}
 	
