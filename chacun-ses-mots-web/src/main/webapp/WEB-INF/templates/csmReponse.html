@@ -7,8 +7,8 @@
 	<div th:fragment="contenu" class="container">
 		<h1 th:value="'reponse' + ${reponse?.id}"></h1>
 		<h2>[[${reponse?.donnee}]]</h2>
-		<h2>[[${reponse?.type}]]</h2>
-		<a href="csmListe-reponse" class="btn btn-info">Liste des
+		<h2>[[${reponse?.typeDonnee}]]</h2>
+		<a th:href="csmListe-reponse" class="btn btn-info">Liste des
 			reponses</a>
 	</div>
 </body>
