@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connexion</title>
-    <link rel="stylesheet" href="/css/csmStyle.css"/>
+    <title>Connexion à Chacun ses mots</title>
+
 </head>
 
 <body>
-    <div id="background">
-        <!--<img src="http://www.ameter-paysages.fr/images/jardin-japonais-wallpaper_2.jpg" alt=""> -->
-        
-    </div>
-    <div class="container">
+
+    <div th:fragment="contenu">
         <header>
             <h1 id="titre">Connexion</h1>
         </header>
@@ -39,18 +35,19 @@
             <footer>
                 <ul>
                     <li>          
-                        <a href="csmInscription.html">pas de compte ?</a>
+                        <a href="csmInscription">pas de compte ?</a>
                     </li>
                     <li>          
-                        <a href="csmMenu.html">Menu</a>
+                        <a href="csmMenu">Jouer</a>
                     </li>
                     <li>                
-                        <a href="#">mot de passe oubliÃ©</a>
+                        <a href="#">mot de passe oublié</a>
                     </li>
                 </ul>
             </footer>
         </div>
     </div>
+    
 <script src="ajax.js"></script>
 <script src="csmLogin.js"></script> 
 </body>
