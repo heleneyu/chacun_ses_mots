@@ -1,19 +1,19 @@
-ul {
+.ul-nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #cdc6c8;
   position: fixed;
 top: 0;
 width: 100%;
 }
 
-li {
+.li-nav {
   float: left;
 }
 
-li a {
+.li-nav a {
   display: block;
   color: white;
   text-align: center;
@@ -26,6 +26,6 @@ li a {
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
+.li-nav a:hover {
+  background-color: 6F7880;
 }
