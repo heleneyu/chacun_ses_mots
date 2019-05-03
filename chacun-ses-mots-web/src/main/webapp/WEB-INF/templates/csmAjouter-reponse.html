@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
+<head>
+<title>Nouvelle reponse</title>
+</head>
+<body>
+	<div th:fragment="contenu" class="container">
+	<h1 th:value="${reponseM == null?'Nouvelle reponse':'Modifier la reponse'} "></h1>
+		<form method="post">
+			<div class="form-group">
+				<label>Donnée de la reponse</label>
+				<input type="text" class="form-control" name="donnee" id="donnee" placeholder="reponse" th:value="${reponseM?.donnee}"> 
+			</div>
+			<div class="form-group">
+				<label>Type de la reponse</label>
+				<input type="text" class="form-control" name="type" id="type" placeholder="type" th:value="${reponseM?.type}"> 
+			</div>
+			<div class="form-group">
+				<input type="submit" class="form-control btn btn-primary" th:value="${reponseM == null?'Ajouter':'Enregistrer'}"/>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
