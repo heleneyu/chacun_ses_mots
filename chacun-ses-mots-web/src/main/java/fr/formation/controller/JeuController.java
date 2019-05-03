@@ -10,7 +10,7 @@ public class JeuController {
 	
 	@GetMapping({"tour"})
 	public String tourJoueur(@PathVariable int idPartie, Model model) {
-		return "csmTourCase";
+		return "csmTourJoueur";
 	}
 
 }
