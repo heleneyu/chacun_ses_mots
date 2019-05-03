@@ -42,7 +42,8 @@ public class JoueurController {
 
 	@GetMapping({ "/profil/{idJoueur}" })
 	public String profil(@PathVariable int idJoueur, Model model) {
-
+		
+		model.addAttribute(daoJoueur.findById(idJoueur));
 		return "csmProfil";
 
 	}
