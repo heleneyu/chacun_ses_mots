@@ -1,15 +1,18 @@
 package fr.formation.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import fr.formation.projet.IDAOJoueur;
+
 @Controller
 public class JoueurController {
 
-//	@Autowired
-//	private IDAOJoueur daoJoueur;
+	@Autowired
+	private IDAOJoueur daoJoueur;
 
 	@GetMapping({ "/connexion" })
 	public String connexion(Model model) {
