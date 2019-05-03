@@ -1,57 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inscription</title>
-    <link rel="stylesheet" href="csmStyle.css" />
+<title>Inscription</title>
 </head>
 
 <body>
-    <div id="background"></div>
-    <div class="container">
-        <header>
-            <h1 id="titre">Inscription</h1>
-        </header>
-        <section id="section">
-            <form action="#" class="form" method="post" id="form">
-                <div>
-                    <input type="text" name="username" id="username" placeholder="Username" />
-                </div>
-                <div>
-                    <input type="email" name="email" id="email" placeholder="Email" />
-                </div>
-                <div>
-                    <input type="password" name="pass1" id="password" placeholder="Password" />
-                </div>
-                <div>
-                    <input type="password" name="pass2" id="password2" placeholder="Confirm password" />
-                </div>
-                <div>
-                    <input type="checkbox" name="cgu" id="cgu">
-                    <label for="cgu" id="cguText">J'accepte les conditions g√©n√©rales d'utilisation</label>
-                </div>
-                <div>
-                    <button type="submit" id="buttonInscription">S'inscrire</button>
-                </div>
-            </form>
-        </section>
-        <div>
-            <footer>
-                <ul>
-                    <li>
-                        <a href="csmConnexion.html">J'ai d√©j√† un compte</a>
-                    </li>
-                    <li>
-                        <a href="csmMenu.html">Menu</a>
-                    </li>
-                </ul>
-            </footer>
-        </div>
-    </div>
-    <script src="ajax.js"></script>
-    <script src="csmLogin.js"></script>
+	<div id="background"></div>
+	<div th:fragment="contenu">
+		<header>
+			<h1 id="titre">Inscription</h1>
+		</header>
+		<section id="section">
+			<form action="#" class="form" method="post" id="form">
+				<div>
+					<input type="text" name="username" id="username"
+						placeholder="Username" />
+				</div>
+				<div>
+					<input type="email" name="email" id="email" placeholder="Email" />
+				</div>
+				<div>
+					<input type="password" name="pass1" id="password"
+						placeholder="Password" />
+				</div>
+				<div>
+					<input type="password" name="pass2" id="password2"
+						placeholder="Confirm password" />
+				</div>
+				<div>
+					<input type="checkbox" name="cgu" id="cgu"> <label
+						for="cgu" id="cguText">J'accepte les conditions gÈnÈrales
+						d'utilisation</label>
+				</div>
+				<div>
+					<button type="submit" id="buttonInscription">S'inscrire</button>
+				</div>
+			</form>
+		</section>
+		<div>
+			<footer>
+				<ul>
+					<li><a href="csmConnexion">J'ai dÈj‡ un compte</a></li>
+					<li><a href="csmMenu">Jouer</a></li>
+				</ul>
+			</footer>
+		</div>
+	</div>
+	<script src="ajax.js"></script>
+	<script src="csmLogin.js"></script>
+
 
 </body>
 </html>

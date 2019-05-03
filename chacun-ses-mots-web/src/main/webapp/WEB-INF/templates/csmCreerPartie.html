@@ -1,53 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="csmStyle.css">
-    <title>Chacun ses mots - CrÃ©ation partie</title>
+<title>Chacun ses mots - Création partie</title>
 </head>
 <body>
-        <div class="container">
-                <header>
-                    <h1>
-                        Page de connexion
-                    </h1>
-                </header>
-                <section>
-                    <form action="csmCreerPartie.html" method="POST" class="form" id="idJoueur">
-                        <div>
-                            <!-- <label for="username">Utilisateur</label>-->
-                            <input type="text" name="username" id="username" placeholder="username">
-                        </div>
-                        <div>
-                            <!-- <label for="password">Mot de passe</label> -->
-                            <input type="password" name="password" id="password" placeholder="password">
-                        </div>
-                        <div class="check">
-                            <label for="remember">Se souvenir de moi</label>
-                            <input type="checkbox" name="remember" id="remember">
-                        </div>
-                        <div>
-                            <button type="submit" id="boutonLogin">CONNEXION</button>
-                        </div>
-                    </form>
-                    <form action="csmCreerPartie.html" class="form" id="autreJoueur">
-                        <div class="creerParPseudo">
-                            <label for="pseudo">Entrez votre pseudo</label>
-                            <input type="text" name="pseudo" id="pseudo" />
-                            <button type="submit">Jouer</button>
-                        </div>
-                        <div>
-                            <input type="hidden" name="anon"/>
-                            <button type="submit">Jouer en tant qu'anonyme</button>
-                        </div>
-                    </form>
-                    <a href="csmTourJoueur.html">Aller au tour</a>
-                </section>
-            </div>
-            <script src="ajax.js"></script>
-            <script src="csmLogin.js"></script>
+	<div th:fragment="contenu">
+		<header>
+			<h1>Page de connexion</h1>
+		</header>
+		<section>
+			<form action="csmCreerPartie" method="POST" class="form"
+				id="idJoueur">
+				<div>
+					<!-- <label for="username">Utilisateur</label>-->
+					<input type="text" name="username" id="username"
+						placeholder="username">
+				</div>
+				<div>
+					<!-- <label for="password">Mot de passe</label> -->
+					<input type="password" name="password" id="password"
+						placeholder="password">
+				</div>
+				<div class="check">
+					<label for="remember">Se souvenir de moi</label> <input
+						type="checkbox" name="remember" id="remember">
+				</div>
+				<div>
+					<button type="submit" id="boutonLogin">CONNEXION</button>
+				</div>
+			</form>
+			<form action="csmCreerPartie.html" class="form" id="autreJoueur">
+				<div class="creerParPseudo">
+					<label for="pseudo">Entrez votre pseudo</label> <input type="text"
+						name="pseudo" id="pseudo" />
+					<button type="submit">Jouer</button>
+				</div>
+				<div>
+					<input type="hidden" name="anon" />
+					<button type="submit">Jouer en tant qu'anonyme</button>
+				</div>
+			</form>
+			<a href="csmTourJoueur">Aller au tour</a>
+		</section>
+	</div>
+	<script src="ajax.js"></script>
+	<script src="csmLogin.js"></script>
 
 </body>
 </html>

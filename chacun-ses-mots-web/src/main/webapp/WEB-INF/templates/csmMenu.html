@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,7 @@
 
 <body>
     <section>
-    <div class="container">
+    <div th:fragment="contenu">
 
                 <nav>
                     <ul>

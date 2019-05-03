@@ -1,27 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="csmStyle.css">
     <title>Chacun ses mots - Tour</title>
 </head>
 
 <body>
-    <header id ="tour">
-        <nav>
-            <div>
-                <a href="menu.html">Menu</a></div>
-            <div>
-                <a href="connexion.html">Connexion</a></div>
-            <div>
-                <a href="inscription.html">inscription</a></div>
-        </nav>
-        <h1>CHACUN SES MOTS</h1>
-    </header>
-    <div class="container">
+
+
+    <div th:fragment="contenu">
         <div class="rowJoueur">
             <div class="joueur">Joueur A</div>
         </div>
@@ -62,7 +50,7 @@
     <footer>
         <ul>
             <li>
-                <a href="csmVoteJoueur.html">Vote</a>
+                <a href="csmVoteJoueur">Vote</a>
             </li>
         </ul>
     </footer>
