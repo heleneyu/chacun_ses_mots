@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout.html :: layout(~{::title}, ~{::contenu})}">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 <head>
-<base href="/gopra-web/"/>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-<meta charset="UTF-8">
 <title>Liste des questions</title>
 </head>
 <body>
-	<div th:fragment="contenu" class="container">
+	<div th:fragment="contenu">
 		<h1>Liste des questions</h1>
 		<a href="csmAjouter-question" class="btn btn-warning">Ajouter une question</a>
 		<table class="table table-striped">
@@ -31,7 +25,7 @@
 					class="btn btn-info">Modifier</a></td>
 			</tr>
 		</table>
-		<a href="csmHome" class="btn btn-warning">Retourner Ã  l'Ã©cran d'accueil</a>
+		<a href="csmHome" class="btn btn-warning">Retourner à l'écran d'accueil</a>
 	</div>
 </body>
 </html>
