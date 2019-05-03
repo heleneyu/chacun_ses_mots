@@ -19,7 +19,7 @@ public class QuestionController {
 	
 	@GetMapping("/csmQuestion/{idquestion}")
 	public String question(Model model, @PathVariable int idquestion) {
-//		model.addAttribute("question", daoQuestion.findById(idquestion).get());
+		model.addAttribute("question", daoQuestion.findById(idquestion).get());
 		return "csmQuestion";
 	}
 	
