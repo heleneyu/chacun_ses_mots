@@ -2,6 +2,9 @@ package fr.formation.controller;
 
 
 
+import java.util.List;
+import java.util.Random;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -12,15 +15,26 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.model.Joueur;
 import fr.formation.model.Partie;
+import fr.formation.model.Question;
+import fr.formation.projet.IDAOJoueur;
 import fr.formation.projet.IDAOPartie;
+import fr.formation.projet.IDAOQuestion;
 
 @Controller
 public class MenuController {
 
 	@Autowired
 	private IDAOPartie daoPartie;
+	
+	@Autowired
+	private IDAOJoueur daoJoueur;
+	
+	@Autowired
+	private IDAOQuestion daoQuestion;
 
 	@GetMapping({ "/menu" })
 	public String menu(Model model) {
@@ -38,8 +52,13 @@ public class MenuController {
 	}
 
 	@GetMapping({"/join","/rejoindre"})
-	public String rejoindre(int id, Model model) {
-		if(daoPartie.findById(id).isPresent()) {
+	public String rejoindre(int id, Model model, HttpSession session) {
+		Partie p = daoPartie.findById(id).get();
+		if(session.getAttribute("joueur") != null) {
+			p.getJoueurs().add((Joueur) session.getAttribute("joueur"));
+			daoPartie.save(p);
+			daoJoueur.save((Joueur)session.getAttribute("joueur"));
+			
 		return "redirect:/tour";
 				}
 		return "csmHome";
@@ -47,21 +66,34 @@ public class MenuController {
 	
 	@GetMapping({"/setgame"})
 	public String setGame(Model model
-			,HttpSession session) {
-		if(true) {
-			return "csmConnexion";
-		}
-		Partie p = Partie.creerPartie(modeAffichage, nbJoueur, nbTour, modeSaisie, etatPartie)
+			,HttpSession session,
+			@RequestParam String name,
+			@RequestParam int modeA, @RequestParam int nbJoueurs, @RequestParam int nbTours, @RequestParam int modeJeu
+			) {
+		
+		Partie p = Partie.creerPartie(modeA, nbJoueurs, nbTours, modeJeu, 0);
+
+//		if(session.getAttribute("joueur") == null) {
+//			Random random = new Random();
+//			int number = random.nextInt();
+//			while (number < 100) {
+//				number = random.nextInt();
+//			}
+//			Joueur j = Joueur.creerJoueur(name);
+//			p.setId(number);
+//			j.setId(number);
+//			session.setAttribute("joueur", j);
+//		}
+//		else {
+		p.getJoueurs().add((Joueur) session.getAttribute("joueur"));
+		Random r = new Random();
+		List<Question> q = daoQuestion.findAll();
+		p.setQuestionEnCours(q.get(r.nextInt(q.size())));
+		p.getQuestionEnCours().setNbInput();
+		((Joueur) session.getAttribute("joueur")).setId( daoPartie.save(p).getId());
+//		}
 		return "redirect:/tour";
 	}
 	
-	@PostMapping({"/setgame"})
-	public String setGame2(Model model) {
-		if(true) {
-			return "csmConnexion";
-		}
-		
-		return "redirect:/tour";
-	}
 
 }
