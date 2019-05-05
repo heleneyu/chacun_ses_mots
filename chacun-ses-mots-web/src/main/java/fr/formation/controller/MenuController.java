@@ -2,6 +2,7 @@ package fr.formation.controller;
 
 
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,11 +46,12 @@ public class MenuController {
 	}
 	
 	@GetMapping({"/setgame"})
-	public String setGame(Model model) {
+	public String setGame(Model model
+			,HttpSession session) {
 		if(true) {
 			return "csmConnexion";
 		}
-		
+		Partie p = Partie.creerPartie(modeAffichage, nbJoueur, nbTour, modeSaisie, etatPartie)
 		return "redirect:/tour";
 	}
 	

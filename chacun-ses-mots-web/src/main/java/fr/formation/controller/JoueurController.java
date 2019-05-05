@@ -1,5 +1,6 @@
 package fr.formation.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.context.annotation.SessionScope;
 
 import fr.formation.model.Joueur;
 import fr.formation.projet.IDAOJoueur;
 
 @Controller
+@SessionScope
 public class JoueurController {
 
 	@Autowired
@@ -27,19 +30,30 @@ public class JoueurController {
 	}
 
 	@PostMapping({ "/connexion" })
-	public String connexion(@Valid @ModelAttribute Joueur j, BindingResult result, Model model) {
+	public String connexion(@Valid @ModelAttribute Joueur j, BindingResult result, HttpSession session, Model model) {
 		if (result.hasErrors()) {
 
 			return "csmConnexion";
 		}
 
+		
 		if (daoJoueur.findByPseudoAndMotDePasse(j.getPseudo(), j.getMotDePasse()).isPresent()) {
-			return "redirect:/csmJoueur";
+			Joueur joueur = daoJoueur.findByPseudoAndMotDePasse(j.getPseudo(), j.getMotDePasse()).get();
+			joueur.setLogged(true);
+			session.setAttribute("joueur",joueur);
+			daoJoueur.save(joueur);
+			return "redirect:/profil/" + joueur.getId();
 		}
 		model.addAttribute("erreurConnexion", "Pseudo ou mot de passe invalide");
 		return "csmConnexion";
 	}
 
+	
+	@ModelAttribute
+	public Joueur getJoueur(int id) {
+		return daoJoueur.findById(id).get();
+	}
+	
 	@GetMapping({ "/profil/{idJoueur}" })
 	public String profil(@PathVariable int idJoueur, Model model) {
 		
