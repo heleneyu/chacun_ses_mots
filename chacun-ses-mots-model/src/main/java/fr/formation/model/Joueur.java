@@ -64,10 +64,6 @@ public class Joueur {
 	@JoinColumn(name = "P_PARTIE_ID")
 	private Partie partie;
 	
-	@NotNull
-	@Column(name="P_LOGGED")
-	private boolean logged;
-	
 	//reponses ecrites en java
 	@Transient
 	private List<String> reponsesEcrites = new ArrayList<String>();
@@ -186,12 +182,7 @@ public class Joueur {
 	public void setPartie(Partie partie) {
 		this.partie = partie;
 	}
-	public boolean isLogged() {
-		return logged;
-	}
-	public void setLogged(boolean logged) {
-		this.logged = logged;
-	}
+
 	
 	
 	
