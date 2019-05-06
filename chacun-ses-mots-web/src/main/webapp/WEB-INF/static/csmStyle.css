@@ -104,7 +104,7 @@ table {
 }
 
 td {
-	height: 25px;
+	min-height: 20px;
 	text-align: left;
 	padding: 15px;
 }
@@ -115,7 +115,7 @@ tr:nth-child(even) {
 }
 
 th {
-	height: 30px;
+	min-height: 20px;
 	text-align: center;
 	font-size: 1.2em;
 	background-color: #b4bdc3;
