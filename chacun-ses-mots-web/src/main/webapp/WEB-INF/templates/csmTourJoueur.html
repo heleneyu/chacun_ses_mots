@@ -11,7 +11,7 @@
 
 	<div th:fragment="contenu">
 
-
+<section>
 		<h1>Joueur A</h1>
 		<header> </header>
 		<div class="question">
@@ -19,11 +19,9 @@
 		</div>
 		
 		<div th:each="carte : ${main}">
-			<div class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
+			<div class="carteReponse" th:id="${carte.id}"><a href="vote">[[${carte.donnee}]]</a></div>
 		</div>
 
-
-		<section>
 
 			<form action="jouer" class="form">
 				<div>
@@ -35,7 +33,7 @@
 			</form>
 
 			<div>
-				<a href="csmVoteJoueur">Vote</a>
+				<a href="vote">Vote</a>
 
 			</div>
 

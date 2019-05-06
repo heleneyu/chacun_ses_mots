@@ -4,25 +4,33 @@
 
 <head>
 
-    <title>Chacun ses mots - Vote </title>
+    <title>Chacun ses mots - Vote du tour [[${partie.tourEnCours}]]</title>
 </head>
 
 <body>
     <div th:fragment="contenu">
+		<div class="question">
+        	<div class="text">[[${partie.questionEnCours.donnee}]]</div>
+        	
+        	</div>
+        	
+        	
+        	<form action="VoteJoueur" class="form">
+        	<div th:each="joueur : ${partie}">
+        <div class="reponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
+        </div>
+        
 
-        <div class="question">J'aime beaucoup _____ </div>
-        <div class="reponse" cid="1">J'aime beaucoup les chats.</div>
-        <div class="form">
-            <form action="csmVoteJoueur">
+        
                 <input type="hidden" name="voteId" id="voteId">
-                <input class="submit-hidden" type="submit" name="submitButton" value="VOTER" />
+                <input class="button" type="submit" name="submitButton" value="VOTER" />
             </form>
         </div>
-    </div>
+
     
 </body>
 <footer>
-        <a href="csmScore">Score</a>
+        <a href="Score">Score</a>
 </footer>
 
 </html>
