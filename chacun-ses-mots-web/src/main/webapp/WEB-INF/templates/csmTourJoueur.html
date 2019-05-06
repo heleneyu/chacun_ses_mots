@@ -11,12 +11,16 @@
 
 	<div th:fragment="contenu">
 
-		<section>
-			<h1>Joueur A</h1>
-			<header> </header>
-			<div class="question">
-				<div class="text">[[${partie.questionEnCours.donnee}]]</div>
-			</div>
+<section>
+		<h1>Joueur A</h1>
+		<header> </header>
+		<div class="question">
+			<div class="text">[[${partie.questionEnCours.donnee}]]</div>
+		</div>
+		
+		<div th:each="carte : ${main}">
+			<div name="carteids" class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
+		</div>
 
 			<div th:each="carte : ${main}">
 				<div class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
@@ -28,7 +32,7 @@
 				<input type="hidden" id="r2" name="r2"></input>
 				<input type="hidden" id="r3" name="r3"></input>
 				<div>
-					<input type="text" id="re1" name="re1"
+					<input name="textes" type="text" id="reponselibreinput"
 						placeholder="OU entrez votre saisie">
 				</div>
 				<div>
