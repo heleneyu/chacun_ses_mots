@@ -17,43 +17,43 @@ public class QuestionController {
 	@Autowired
 	private IDAOQuestion daoQuestion;
 	
-	@GetMapping("/csmQuestion/{idquestion}")
+	@GetMapping("/question/{idquestion}")
 	public String question(Model model, @PathVariable int idquestion) {
 		model.addAttribute("question", daoQuestion.findById(idquestion).get());
 		return "csmQuestion";
 	}
 	
-	@GetMapping("/csmListe-question")
+	@GetMapping({"/liste-question", "/liste-question/{idquestion}"})
 	public String listequestion(Model model) {
 		model.addAttribute("questions", daoQuestion.findAll());
 		return "csmListe-question";
 	}
 	
-	@GetMapping({"/csmSupprimer-question","/csmSupprimer-question/{idquestion}"})
+	@GetMapping({"/supprimer-question","/supprimer-question/{idquestion}"})
 	public String supprimerquestion(@PathVariable int idquestion) {
 		daoQuestion.deleteById(idquestion);
-		return "redirect:/csmListe-question";
+		return "redirect:/liste-question";
 	}
 
-	@GetMapping("/csmAjouter-question")
+	@GetMapping("/ajouter-question")
 	public String ajouterquestion() {
 		return "csmAjouter-question";
 	}
-	@PostMapping("/csmAjouter-question")
+	@PostMapping("/ajouter-question")
 	public String ajouterquestion(@ModelAttribute Question p) {
 		daoQuestion.save(p);
-		return "redirect:/csmListe-question";
+		return "redirect:/liste-question";
 	}
 	
-	@GetMapping({"/csmModifier-question/", "/csmModifier-question/{idquestion}"})
+	@GetMapping({"/modifier-question/", "/modifier-question/{idquestion}"})
 	public String modifierquestion(Model model, @PathVariable int idquestion) {
 		model.addAttribute("questionM", daoQuestion.findById(idquestion).get());
 		return "csmAjouter-question";
 	}
-	@PostMapping({"/csmModifier-question/", "/csmModifier-question/{idquestion}"})
-	public String modifierquestionPost(@ModelAttribute Question f, @PathVariable int idquestion) {
-		f.setId(idquestion);
-		daoQuestion.save(f);
-		return "redirect:/csmListe-question";
+	@PostMapping({"/modifier-question/", "/modifier-question/{idquestion}"})
+	public String modifierquestionPost(@ModelAttribute Question q, @PathVariable int idquestion) {
+		q.setId(idquestion);
+		daoQuestion.save(q);
+		return "redirect:/liste-question";
 	}
 }

@@ -9,10 +9,14 @@
 		<form method="post">
 			<div class="form-group">
 				<label>Donnée de la question</label>
-				<input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" th:value="${questionM?.donnee}"> 
+				<input type="text" class="form-control" name="donnee" id="donnee" placeholder="donnee" th:value="${questionM?.donnee}"> 
 			</div>
 			<div class="form-group">
-				<input type="submit" class="form-control btn btn-primary" th:value="${questionM == null?'Ajouter':'Enregistrer'}"/>
+				<label>Type de la question</label>
+				<input type="text" class="form-control" name="typeDonnee" id="typeDonnee" placeholder="typeDonnee" th:value="${questionM == null?'texte':questionM?.typeDonnee}"> 
+			</div>
+			<div class="form-group">
+				<input type="submit" class="button" th:value="${questionM == null?'Ajouter':'Enregistrer'}"/>
 			</div>
 		</form>
 	</div>
