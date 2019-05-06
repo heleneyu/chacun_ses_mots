@@ -1,33 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 <head>
 <title>Liste des reponses</title>
 </head>
 <body>
 	<div th:fragment="contenu">
-		<a th:href="ajouter-reponse" class="button">Ajouter une reponse</a>
-		<table class="table table-striped">
-			<thead>
+		<div>
+			<a href="ajouter-reponse"><button class="button">+
+					Ajouter une reponse</button></a> <a href="javascript:history.back()"><button
+					class="button-secondary">Retour</button></a>
+		</div>
+		<div>
+			<table>
+
 				<tr>
 					<th>ID</th>
 					<th>réponse</th>
 					<th>type</th>
 					<th>Actions</th>
 				</tr>
-			</thead>
-			<tr th:each="reponse : ${reponses}">
-				<td th:text="${reponse.getId()}"></td>
-				<td><a th:href="@{reponse/{reponseId}(reponseId=${reponse.id})}"
-					th:text="${reponse.getDonnee()}"></a></td>
-					<td><a th:href="@{reponse/{reponseId}(reponseId=${reponse.id})}"
-					th:text="${reponse.getTypeDonnee()}"></a></td>
-				<td><a th:href="@{supprimer-reponse/{reponseId}(reponseId=${reponse.id})}"
-					 class="button">Supprimer</a>
-				<td><a th:href="@{modifier-reponse/{reponseId}(reponseId=${reponse.id})}" 
-					class="button">Modifier</a></td>
-			</tr>
-		</table>
-		<a th:href="home" class="button">Retourner à l'écran d'accueil</a>
+
+				<tr th:each="reponse : ${reponses}">
+					<td th:text="${reponse.getId()}"></td>
+					<td><span th:text="${reponse.getDonnee()}"></span></td>
+					<td th:text="${reponse.getTypeDonnee()}"></td>
+
+					<td><a
+						th:href="@{reponse/{reponseId}(reponseId=${reponse.id})}"><button
+								class="button-mini">Voir</button></a> <a
+						th:href="@{supprimer-reponse/{reponseId}(reponseId=${reponse.id})}">
+							<button class="button-mini-red">Supprimer</button>
+					</a> <a
+						th:href="@{modifier-reponse/{reponseId}(reponseId=${reponse.id})}">
+							<button class="button-mini-yellow">Modifier</button>
+					</a></td>
+				</tr>
+			</table>
+		</div>
+		<a href="home"><button class="button">Retourner à l'écran
+				d'accueil</button></a>
 	</div>
 </body>
 </html>

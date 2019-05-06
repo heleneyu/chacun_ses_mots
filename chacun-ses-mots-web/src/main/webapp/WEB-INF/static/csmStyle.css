@@ -18,25 +18,27 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93787f',
 		endColorstr='#cdc6c8', GradientType=0); /* IE6-9 */
 	color: #0d558e;
-	background-repeat: repeat;
+
 	font-family: 'Roboto', sans-serif;
 	padding-top: 150px;
+background-repeat: no-repeat;
+background-attachment :fixed;
 
 	/**background: whitesmoke;*/
 }
 
 a:link {
-	color: #4f66af;
+	color: #e66465;
 }
 
 a:hover {
-	border-bottom: 2px solid #8adbd4;
-	color: #8adbd4;
+	border-bottom: 2px solid #9198e5;
+	color: #9198e5;
 }
 
 a:visited {
-	border-bottom: 2px solid #a868d2;
-	color: #a868d2;
+	border-bottom: 2px solid #9198e5;
+	color: #9198e5;
 }
 
 /* bloc blanc*/
@@ -98,31 +100,42 @@ section {
 	border: none;
 }
 
+input, select {
+ padding:3px;
+ border:1px solid #e66465;
+ width:90%;
+ box-shadow:none;
+ }
+
 table {
 	border-collapse: collapse;
 	width: 100%;
 }
 
 td {
-	min-height: 20px;
+	min-height: 15px;
 	text-align: left;
-	padding: 15px;
+	padding: 10px;
 }
 
 tr:nth-child(even) {
-	background-color: #f2f2f2;
-	border-bottom: 1px solid #ddd;
+	background-color: #e0d9d1;
+
 }
 
 th {
-	min-height: 20px;
+	min-height: 15px;
 	text-align: center;
-	font-size: 1.2em;
-	background-color: #b4bdc3;
+	font-size: 1.1em;
+	background-color: #0d558e;
 	color: white;
-	padding: 15px;
+	padding: 10px;
 }
 
+.th-menu {
+		min-height: 10px;
+		font-size: 0.8em;
+}
 
 button {
 	background-color: #136db3;
@@ -130,7 +143,8 @@ button {
 	font-size: 1.1em;
 	padding: 10px 15px;
 	border-radius: 10px;
-	margin-top: 10px;
+	margin: 10px 0px 10px 0px;
+	border:0px;
 }
 
 .button-secondary {
@@ -139,20 +153,48 @@ button {
 	font-size: 1.1em;
 	padding: 10px 15px;
 	border-radius: 10px;
-	margin-top: 10px;
+	margin: 10px 0px 10px 0px;
+}
+
+.button-mini {
+	width:100%;
+	background-color: #136db3;
+	color: white;
+	font-size: 0.9em;
+	padding: 5px 5px;
+	border-radius: 10px;
+	margin: 3px 0px 0px 0px;
+}
+
+.button-mini-red {
+		width:100%;
+	background-color: #f73a31;
+	color: white;
+	font-size: 0.9em;
+	padding: 5px 5px;
+	border-radius: 10px;
+	margin: 3px 0px 0px 0px;
+}
+
+.button-mini-yellow {
+		width:100%;
+	background-color: #eca141;
+	color: white;
+	font-size: 0.9em;
+	padding: 5px 5px;
+	border-radius: 10px;
+	margin: 3px 0px 0px 0px;
 }
 
 button:hover {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f1a9
-		), color-stop(1, #136db3));
-	background: -moz-linear-gradient(top, #6492b7 5%, #136db3 100%);
-	background: -webkit-linear-gradient(top, #6492b7 5%, #136db3 100%);
-	background: -o-linear-gradient(top, #6492b7 5%, #136db3 100%);
-	background: -ms-linear-gradient(top, #6492b7 5%, #136db3 100%);
-	background: linear-gradient(to bottom, #6492b7 5%, #136db3 100%);
+
+	background: -moz-linear-gradient(#e66465, #9198e5);
+	background: -webkit-linear-gradient(#e66465, #9198e5);
+	background: -o-linear-gradient(#e66465, #9198e5);
+	background: -ms-linear-gradient(#e66465, #9198e5);
+	background: linear-gradient(#e66465, #9198e5);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6492b7',
 		endColorstr='#136db3', GradientType=0);
-	background-color: #6492b7;
 }
 
 .form div input[type="checkbox"] {

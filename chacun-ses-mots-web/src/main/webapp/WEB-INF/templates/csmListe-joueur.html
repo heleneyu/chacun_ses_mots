@@ -6,9 +6,14 @@
 </head>
 <body>
 	<div th:fragment="contenu">
-		<a href="ajouter-joueur" class="button">Ajouter un joueur</a>
-		<table class="table table-striped">
-			<thead>
+		<div>
+			<a href="ajouter-joueur"><button>+ Ajouter un joueur</button></a> <a
+				href="javascript:history.back()"><button
+					class="button-secondary">Retour</button></a>
+		</div>
+		<div>
+			<table>
+
 				<tr>
 					<th>ID</th>
 					<th>Nom</th>
@@ -17,24 +22,25 @@
 					<th>Type</th>
 					<th>Actions</th>
 				</tr>
-			</thead>
-			<tr th:each="joueur : ${joueurs}">
-				<td th:text="${joueur.getId()}"></td>
-				<td th:text="${joueur.getNom()}"></td>
-				<td th:text="${joueur.getPrenom()}"></td>
-				<td><a
-					th:href="@{profil/{joueurId}(joueurId=${joueur.id})}"
-					th:text="${joueur.getPseudo()}"></a></td>
-				<td th:text="${joueur.getType()}"></td>
-				<td><a
-					th:href="@{supprimer-joueur/{joueurId}(joueurId=${joueur.id})}" class="button">Supprimer</a>
-				</td>
-				<td><a
-					th:href="@{modifier-joueur/{joueurId}(joueurId=${joueur.id})}"
-					class="button">Modifier</a></td>
-			</tr>
-		</table>
-		<a href="home" class="button">Retourner à l'écran d'accueil</a>
+
+				<tr th:each="joueur : ${joueurs}">
+					<td th:text="${joueur.getId()}"></td>
+					<td th:text="${joueur.getNom()}"></td>
+					<td th:text="${joueur.getPrenom()}"></td>
+					<td><span th:text="${joueur.getPseudo()}"></span></td>
+					<td th:text="${joueur.getType()}"></td>
+
+					<td><a th:href="@{profil/{joueurId}(joueurId=${joueur.id})}"><button
+								class="button-mini">Voir le profil</button></a> <a
+						th:href="@{supprimer-joueur/{joueurId}(joueurId=${joueur.id})}"><button
+								class="button-mini-red">Supprimer</button></a> <br> <a
+						th:href="@{modifier-joueur/{joueurId}(joueurId=${joueur.id})}"><button
+								class="button-mini-yellow">Modifier</button></a></td>
+				</tr>
+			</table>
+		</div>
+		<a href="home"><button class="button">Retourner à l'écran
+				d'accueil</button></a>
 	</div>
 </body>
 </html>

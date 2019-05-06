@@ -29,54 +29,58 @@
 					<div>
 						<input type="text" placeholder="Nom de la partie" name="name"></input>
 					</div>
-					<div>
-						<label for="modeA">Interface</label> <select name="modeA"
-							id="modeA" form="creerPartie">
-							<label for=""></label>
+					<table>
+						<tr>
+							<th class="th-menu"><label for="modeA">Interface</label></th>
+							<th class="th-menu"><label for="nbJoueurs">Nombre de
+									Joueurs</label></th>
+							<th class="th-menu"><label for="nbTour">Nombre de
+									tours</label></th>
+							<th class="th-menu"><label for="modeJeu">Mode de Jeu</label></th>
 
-							<option value="1">Un écran</option>
-							<option value="2">Multi-écran</option>
-						</select> <label for="nbJoueurs">Nombre de Joueurs</label> <select
-							name="nbJoueurs" id="nbJoueurs" form="creerPartie">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-						</select> <label for="nbTour">Nombre de tours</label> <select
-							name="nbTours" id="nbTours" form="creerPartie">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-						</select>
-					</div>
-					<div>
-						<label for="modeJeu">Mode de Jeu</label> <select name="modeJeu"
-							id="modeJeu" form="creerPartie">
-							<option value="1">Réponses Cartes</option>
-							<option value="2">Réponses libres</option>
-							<option value="3">Réponses Cartes et réponses libres</option>
-						</select>
-					</div>
+						</tr>
 
+						<tr>
+							<td><select name="modeA" id="modeA" form="creerPartie">
+									<option value="1">Un écran</option>
+									<option value="2">Multi-écran</option>
+							</select></td>
 
-					<div>
-						<button type="submit" value="CRÉER LA PARTIE">CRÉER LA
-							PARTIE</button>
-					</div>
+							<td><select name="nbJoueurs" id="nbJoueurs"
+								form="creerPartie">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+							</select></td>
+							<td><select name="nbTours" id="nbTours" form="creerPartie">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+							</select></td>
+							<td><select name="modeJeu" id="modeJeu" form="creerPartie">
+									<option value="1">Réponses Cartes</option>
+									<option value="2">Réponses libres</option>
+									<option value="3">Réponses Cartes et réponses libres</option>
+							</select></td>
+						</tr>
 
+					</table>
+					<button type="submit" value="CRÉER LA PARTIE">CRÉER LA
+						PARTIE</button>
 
 
 				</form>

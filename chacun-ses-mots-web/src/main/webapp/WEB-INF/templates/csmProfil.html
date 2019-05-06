@@ -3,21 +3,21 @@
 	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 
 <head>
-<title>Chacun ses mots - Profil</title>
+<title>Profil - [[${joueur?.pseudo}]]</title>
 </head>
 <body>
 	<div th:fragment="contenu">
 		<section>
 			<div>
 				<div>
-					<h2>Informations personnelles</h2>
+					<h2 id="configurer">Informations personnelles</h2>
 				</div>
 				<div>
 					<header> </header>
 				</div>
 				<table>
 					<tr>
-						<th>Nom</th>
+						<th>Pseudo</th>
 						<th>Mot de passe</th>
 					</tr>
 					<tr>
@@ -31,7 +31,7 @@
 			</div>
 
 			<div>
-				<h2>Informations parties</h2>
+				<h2 id='configurer'>Informations parties</h2>
 			</div>
 			<div>
 				<header> </header>
@@ -53,17 +53,16 @@
 
 				</table>
 			</div>
-			<div th:if="${joueur.type== admin}">
-				<table>
-					<tr>
-					<th>Options administrateur</th>
-					</tr>
-					<tr>
-						<td><a href="liste-joueur">Liste joueur</a></td>
-						<td><a href="liste-question">Liste Questions</a></td>
-						<td><a href="liste-reponse">Liste Reponses</a></td>
-					</tr>
-				</table>
+			<div th:if="${joueur.type== 'admin'}">
+			<div>
+					<h2 id="configurer">Gestion admin</h2>
+				</div>
+				
+						<a href="liste-joueur"><button class="button-mini">Liste joueurs</button></a>
+					
+						<a href="liste-question"><button class="button-mini">Liste Questions</button></a>
+					<a href="liste-reponse"><button class="button-mini">Liste Reponses</button></a>
+				
 			</div>
 
 			<div>
