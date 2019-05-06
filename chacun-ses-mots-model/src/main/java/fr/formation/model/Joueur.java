@@ -60,6 +60,7 @@ public class Joueur {
 	@Column (name= "P_SCORE")
 	private int score = 0;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "P_PARTIE_ID")
 	private Partie partie;

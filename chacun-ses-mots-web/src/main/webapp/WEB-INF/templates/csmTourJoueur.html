@@ -7,25 +7,31 @@
 </head>
 
 <body>
-
-
 	<div th:fragment="contenu">
+		<section>
+			<h1>Joueur A</h1>
+			<header> </header>
+			<div class="question">
+				<div class="text">[[${partie.questionEnCours.donnee}]]</div>
+			</div>
 
-<section>
-		<h1>[[${joueur?.pseudo}]]</h1>
-		<header> </header>
-		<div class="question">
-			<div class="text">[[${partie.questionEnCours.donnee}]]</div>
-		</div>
-		
-		<div th:each="carte : ${main}">
-			<div class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
-		</div>
-
-
-			<form action="jouer" class="form">
+			<div th:each="carte : ${main}">
+				<div class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
+			</div>
+			<form action="jouer" class="form" method="GET">
+				<input type="hidden" id="r1" name="carteids"></input> 
+				<input type="hidden" id="r2" name="carteids"></input>
+				<input type="hidden" id="r3" name="carteids"></input>
 				<div>
-					<input type="text" id="reponselibreinput"
+					<input name="textes" type="text" id="reponselibreinput"
+						placeholder="OU entrez votre saisie">
+				</div>
+				<div>
+					<input type="text" id="re2" name="textes"
+						placeholder="OU entrez votre saisie">
+				</div>
+				<div>
+					<input type="text" id="re3" name="textes"
 						placeholder="OU entrez votre saisie">
 				</div>
 				<button type="submit" value="ENVOYER" id="tour-submit-button">ENVOYER</button>
@@ -34,13 +40,10 @@
 
 			<div>
 				<a href="vote">Vote</a>
-
 			</div>
-
-
 		</section>
+		<script src="js/csm-tour.js"></script>
 	</div>
-	<script src="csm-tour.js"></script>
 </body>
 
 
