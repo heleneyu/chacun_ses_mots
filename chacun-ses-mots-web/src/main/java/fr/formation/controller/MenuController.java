@@ -57,6 +57,7 @@ public class MenuController {
 	public String rejoindre(@RequestParam int id, Model model, HttpSession session) {
 		Partie p = daoPartie.findById(id).get();
 		if(session.getAttribute("joueur") != null) {
+			((Joueur) session.getAttribute("joueur")).setPartie(p);
 			p.getJoueurs().add((Joueur) session.getAttribute("joueur"));
 			daoPartie.save(p);
 			daoJoueur.save((Joueur)session.getAttribute("joueur"));
@@ -102,7 +103,7 @@ public class MenuController {
 		model.addAttribute("partie", p);
 		
 //		}
-		return "csmPartie";
+		return "redirect:/tour";
 	}
 	
 	@GetMapping({"/partie"})
