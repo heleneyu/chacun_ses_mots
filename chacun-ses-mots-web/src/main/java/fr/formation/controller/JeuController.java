@@ -40,8 +40,8 @@ public class JeuController {
 			HttpSession session,
 			Model model) {
 		Joueur j = (Joueur) session.getAttribute("joueur");
-		Partie p = daoPartie.findById(j.getPartie().getId()).get();
-		if(p.getJoueurs().size() == p.getNbJoueur() ) {
+		Partie p = j.getPartie();
+
 		model.addAttribute("partie", p);
 		List<Reponse> r = daoReponse.findAll();
 		int s = r.size();
@@ -53,8 +53,7 @@ public class JeuController {
 		}
 		model.addAttribute("main", main);
 		return "csmTourJoueur";
-		}
-		return "csmTourJoueur";
+		
 	}
 	
 	@GetMapping({"/jouer"})
