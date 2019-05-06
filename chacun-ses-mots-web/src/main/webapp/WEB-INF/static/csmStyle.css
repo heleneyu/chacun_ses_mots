@@ -100,6 +100,13 @@ section {
 	border: none;
 }
 
+input, select {
+ padding:3px;
+ border:1px solid #e66465;
+ width:90%;
+ box-shadow:none;
+ }
+
 table {
 	border-collapse: collapse;
 	width: 100%;
@@ -119,12 +126,16 @@ tr:nth-child(even) {
 th {
 	min-height: 15px;
 	text-align: center;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	background-color: #0d558e;
 	color: white;
 	padding: 10px;
 }
 
+.th-menu {
+		min-height: 10px;
+		font-size: 0.8em;
+}
 
 button {
 	background-color: #136db3;
