@@ -11,13 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "partie")
@@ -49,6 +47,7 @@ public class Partie {
 	private int etatPartie;
 	
 	@Column(name="PA_VOTES")
+	@NotNull
 	private int votes = 0;
 
 	@ManyToOne

@@ -76,6 +76,7 @@ public class MenuController {
 		
 		Partie p = Partie.creerPartie(modeA, nbJoueurs, nbTours, modeJeu, 0);
 		p.setJoueurs(new ArrayList<Joueur>());
+		p.setVotes(0);
 
 //		if(session.getAttribute("joueur") == null) {
 //			Random random = new Random();
