@@ -53,7 +53,18 @@
 
 				</table>
 			</div>
-
+			<div th:if="${joueur.type== admin}">
+				<table>
+					<tr>
+					<th>Options administrateur</th>
+					</tr>
+					<tr>
+						<td><a href="liste-joueur">Liste joueur</a></td>
+						<td><a href="liste-question">Liste Questions</a></td>
+						<td><a href="liste-reponse">Liste Reponses</a></td>
+					</tr>
+				</table>
+			</div>
 
 			<div>
 				<button type="submit" class="button-secondary">Retour</button>
