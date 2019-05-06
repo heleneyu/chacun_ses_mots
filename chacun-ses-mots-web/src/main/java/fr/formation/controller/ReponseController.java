@@ -12,48 +12,47 @@ import fr.formation.model.Reponse;
 import fr.formation.projet.IDAOReponse;
 
 @Controller
-//@RequestMapping("/reponse")
 public class ReponseController {
 	@Autowired
 	private IDAOReponse daoreponse;
 	
-	@GetMapping("/csmReponse/{idreponse}")
+	@GetMapping("/reponse/{idreponse}")
 	public String reponse(Model model, @PathVariable int idreponse) {
 		model.addAttribute("reponse", daoreponse.findById(idreponse).get());
 		return "csmReponse";
 	}
 	
-	@GetMapping("/csmListe-reponse")
+	@GetMapping("/liste-reponse")
 	public String listereponse(Model model) {
 		model.addAttribute("reponses", daoreponse.findAll());
 		return "csmListe-reponse";
 	}
 	
-	@GetMapping({"/csmSupprimer-reponse","/csmSupprimer-reponse/{idreponse}"})
+	@GetMapping({"/supprimer-reponse","/supprimer-reponse/{idreponse}"})
 	public String supprimerreponse(@PathVariable int idreponse) {
 		daoreponse.deleteById(idreponse);
-		return "redirect:/csmListe-reponse";
+		return "redirect:/liste-reponse";
 	}
 
-	@GetMapping("/csmAjouter-reponse")
+	@GetMapping("/ajouter-reponse")
 	public String ajouterreponse() {
 		return "csmAjouter-reponse";
 	}
-	@PostMapping("/csmAjouter-reponse")
+	@PostMapping("/ajouter-reponse")
 	public String ajouterreponse(@ModelAttribute Reponse p) {
 		daoreponse.save(p);
-		return "redirect:/csmListe-reponse";
+		return "redirect:/liste-reponse";
 	}
 	
-	@GetMapping({"/csmModifier-reponse/", "/csmModifier-reponse/{idreponse}"})
+	@GetMapping({"/modifier-reponse/", "/modifier-reponse/{idreponse}"})
 	public String modifierreponse(Model model, @PathVariable int idreponse) {
 		model.addAttribute("reponseM", daoreponse.findById(idreponse).get());
 		return "csmAjouter-reponse";
 	}
-	@PostMapping({"/csmModifier-reponse/", "/csmModifier-reponse/{idreponse}"})
+	@PostMapping({"/modifier-reponse/", "/modifier-reponse/{idreponse}"})
 	public String modifierreponsePost(@ModelAttribute Reponse f, @PathVariable int idreponse) {
 		f.setId(idreponse);
 		daoreponse.save(f);
-		return "redirect:/csmListe-reponse";
+		return "redirect:/liste-reponse";
 	}
 }

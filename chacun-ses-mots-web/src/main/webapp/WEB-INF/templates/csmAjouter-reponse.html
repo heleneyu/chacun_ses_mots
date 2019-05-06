@@ -13,7 +13,11 @@
 			</div>
 			<div class="form-group">
 				<label>Type de la reponse</label>
-				<input type="text" class="form-control" name="typeDonnee" id="type" placeholder="type" th:value="${reponseM?.typeDonnee}"> 
+				<select name="typeDonnee" class="form-control">
+						<option th:text="nom" th:value="nom" th:selected="${reponseM?.typeDonnee}"></option>
+						<option th:text="verbe" th:value="verbe" th:selected="${reponseM?.typeDonnee}"></option>
+						<option th:text="adjectif" th:value="adjectif" th:selected="${reponseM?.typeDonnee}"></option>					
+				</select>
 			</div>
 			<div class="form-group">
 				<input type="submit" class="form-control btn btn-primary" th:value="${reponseM == null?'Ajouter':'Enregistrer'}"/>
