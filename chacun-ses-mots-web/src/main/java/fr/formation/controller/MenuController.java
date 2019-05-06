@@ -2,6 +2,7 @@ package fr.formation.controller;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -37,7 +38,8 @@ public class MenuController {
 	private IDAOQuestion daoQuestion;
 
 	@GetMapping({ "/menu" })
-	public String menu(Model model) {
+	public String menu(Model model, HttpSession session) {
+		model.addAttribute("joueur", (Joueur)session.getAttribute("joueur"));
 		return "csmMenu";
 	}
 
@@ -52,7 +54,7 @@ public class MenuController {
 	}
 
 	@GetMapping({"/join","/rejoindre"})
-	public String rejoindre(int id, Model model, HttpSession session) {
+	public String rejoindre(@RequestParam int id, Model model, HttpSession session) {
 		Partie p = daoPartie.findById(id).get();
 		if(session.getAttribute("joueur") != null) {
 			p.getJoueurs().add((Joueur) session.getAttribute("joueur"));
@@ -72,6 +74,7 @@ public class MenuController {
 			) {
 		
 		Partie p = Partie.creerPartie(modeA, nbJoueurs, nbTours, modeJeu, 0);
+		p.setJoueurs(new ArrayList<Joueur>());
 
 //		if(session.getAttribute("joueur") == null) {
 //			Random random = new Random();
@@ -90,10 +93,23 @@ public class MenuController {
 		List<Question> q = daoQuestion.findAll();
 		p.setQuestionEnCours(q.get(r.nextInt(q.size())));
 		p.getQuestionEnCours().setNbInput();
-		((Joueur) session.getAttribute("joueur")).setId( daoPartie.save(p).getId());
+		Joueur j = (Joueur) session.getAttribute("joueur");
+		j.setPartie(daoPartie.save(p));
+		daoJoueur.save(j);
+		session.setAttribute("joueur", j);
+		session.setAttribute("partie", p);
+		model.addAttribute("joueur", j);
+		model.addAttribute("partie", p);
+		
 //		}
-		return "redirect:/tour";
+		return "csmPartie";
 	}
 	
+	@GetMapping({"/partie"})
+	public String partieEnCours(HttpSession session, Model model) {
+		model.addAttribute("joueur", session.getAttribute("joueur"));
+		model.addAttribute("partie", session.getAttribute("partie"));
+		return "csmPartie";
+	}
 
 }

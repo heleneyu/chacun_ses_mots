@@ -9,8 +9,8 @@
 <body>
 	<section>
 		<div th:fragment="contenu">
-
-			<form action="csmCreerPartie" class="form">
+			[[${joueur?.pseudo}]]
+			<form action="setGame" class="form">
 				<h2 id="configurer">Rejoignez une partie !</h2>
 				<div>
 					<input type="text" id="rp" name="rp"
@@ -25,9 +25,9 @@
 
 			<h2 id="configurer">Commencez une nouvelle partie</h2>
 			<div>
-				<form action="csmCreerPartie.html" class="form" id="creerPartie">
+				<form action="setgame" class="form" id="creerPartie">
 					<div>
-						<input type="text" placeholder="Nom de la partie"></input>
+						<input type="text" placeholder="Nom de la partie" name="name"></input>
 					</div>
 					<div>
 						<label for="modeA">Interface</label> <select name="modeA"
