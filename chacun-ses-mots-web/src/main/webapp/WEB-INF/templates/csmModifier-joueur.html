@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
+<head>
+<title>Nouveau joueur</title>
+</head>
+<body>
+	<div th:fragment="contenu" class="container">
+	<h1 th:value="${joueur == null?'Nouveau joueur':'Modifier le joueur'} "></h1>
+		<form method="post">
+			<div class="form-group">
+				<label>Pseudo du joueur</label>
+				<input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="pseudo" th:value="${joueur?.pseudo}"> 
+			</div>
+			<div class="form-group">
+				<label>Nom</label>
+				<input type="text" class="form-control" name="nom" id="nom" placeholder="nom" th:value="${joueur?.nom}"> 
+			</div>
+			<div class="form-group">
+				<label>Prenom</label>
+				<input type="text" class="form-control" name="prenom" id="prenom" placeholder="prenom" th:value="${joueur?.prenom}"> 
+			</div>
+			<div class="form-group">
+				<label>Mot de passe</label>
+				<input type="text" class="form-control" name="motDePasse" id="motDePasse" placeholder="motDePasse" th:value="${joueur?.motDePasse}"> 
+			</div>
+			<div th:if="${joueur.type == admin}" class="form-group">
+				<label>Type du joueur</label>
+				<select name="type" class="form-control">
+						<option th:text="joueur" th:value="joueur" th:selected="${joueur.type}"></option>
+						<option th:text="admin" th:value="admin" th:selected="${joueur.type}"></option>				
+				</select>
+			</div>
+			<div class="form-group">
+				<input type="submit" class="button" th:value="${joueurM == null?'Ajouter':'Enregistrer'}"/>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
