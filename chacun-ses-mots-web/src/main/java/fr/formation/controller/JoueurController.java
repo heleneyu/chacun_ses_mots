@@ -49,15 +49,15 @@ public class JoueurController {
 	}
 
 	
-	@ModelAttribute
-	public Joueur getJoueur(int id) {
-		return daoJoueur.findById(id).get();
-	}
+//	@ModelAttribute
+//	public Joueur getJoueur(int id) {
+//		return daoJoueur.findById(id).get();
+//	}
 	
 	@GetMapping({ "/profil/{idJoueur}" })
 	public String profil(@PathVariable int idJoueur, Model model) {
 		
-		model.addAttribute(daoJoueur.findById(idJoueur));
+		model.addAttribute("joueur", daoJoueur.findById(idJoueur));
 		return "csmProfil";
 
 	}
