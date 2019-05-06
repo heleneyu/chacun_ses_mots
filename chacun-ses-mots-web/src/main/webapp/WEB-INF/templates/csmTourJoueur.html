@@ -11,21 +11,32 @@
 
 	<div th:fragment="contenu">
 
-<section>
-		<h1>Joueur A</h1>
-		<header> </header>
-		<div class="question">
-			<div class="text">[[${partie.questionEnCours.donnee}]]</div>
-		</div>
-		
-		<div th:each="carte : ${main}">
-			<div class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
-		</div>
+		<section>
+			<h1>Joueur A</h1>
+			<header> </header>
+			<div class="question">
+				<div class="text">[[${partie.questionEnCours.donnee}]]</div>
+			</div>
+
+			<div th:each="carte : ${main}">
+				<div class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
+			</div>
 
 
-			<form action="jouer" class="form">
+			<form action="jouer" class="form" method="GET">
+				<input type="hidden" id="r1" name="r1"></input>
+				<input type="hidden" id="r2" name="r2"></input>
+				<input type="hidden" id="r3" name="r3"></input>
 				<div>
-					<input type="text" id="reponselibreinput"
+					<input type="text" id="re1" name="re1"
+						placeholder="OU entrez votre saisie">
+				</div>
+				<div>
+					<input type="text" id="re2" name="re2"
+						placeholder="OU entrez votre saisie">
+				</div>
+				<div>
+					<input type="text" id="re3" name="re3"
 						placeholder="OU entrez votre saisie">
 				</div>
 				<button type="submit" value="ENVOYER" id="tour-submit-button">ENVOYER</button>
@@ -39,9 +50,10 @@
 
 
 		</section>
-	</div>
-	<script src="csm-tour.js"></script>
+		<script src="js/csm-tour.js"></script>
 </body>
+</div>
+
 
 
 </html>
