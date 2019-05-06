@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpSession;
 
@@ -61,27 +62,22 @@ public class JeuController {
 			@RequestParam(value="carteids", required=false, defaultValue="") int[] ids, 
 			@RequestParam(value="textes", required=false, defaultValue="") String[] textes,
 			HttpSession session,
-			Model model) {
-//		session.getAttribute("joueur").getReponsesEcrites.add(session.getAttribute("joueur").getMain().get(r1).getDonnee());		
-//		session.getAttribute("joueur").getMain().clear();
-//		for (int i2 = 0; i2 < 4; i2++) {
-//			// Si on a pas assez de cartes propositions
-//			if (p.getPaquetR().size() < 5) {
-//				p.setPaquetR(melangerPaquetProposition(daoReponse));
-//			}
-//			j.getMain().add(p.getPaquetR().remove(0));
+			Model model) {	
 		
 		Joueur j = (Joueur) session.getAttribute("joueur");
 		Partie p = j.getPartie();
-		//si le champ libre est remplis
+		
 		for(int i=0; i<p.getQuestionEnCours().getNbInput(); i++) {
-			j.getReponsesEcrites().add(textes[i]);
-		}
-		//si le joueur a choisi une ou plusieurs cartes reponse
-		for(int i=0; i<p.getQuestionEnCours().getNbInput(); i++) {
-			j.getCartesJouee().add(daoReponse.findById(ids[i]).get());
+			if(ids[i] != 0) {//si le joueur a choisi une ou plusieurs cartes reponse
+				j.getReponsesEcrites().add(daoReponse.findById(ids[i]).get().getDonnee());
+			}
+			else {//si le champ libre est remplis
+				j.getReponsesEcrites().add(textes[i]);
+			}
 		}
 		
+		daoJoueur.save(j);
+		model.addAttribute("partie", p);
 		return "csmVoteJoueur";
 	}
 	

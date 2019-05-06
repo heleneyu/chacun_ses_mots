@@ -4,33 +4,33 @@
 
 <head>
 
-    <title>Chacun ses mots - Vote du tour [[${partie.tourEnCours}]]</title>
+<title>Chacun ses mots - Vote du tour [[${partie.tourEnCours}]]</title>
 </head>
 
 <body>
-    <div th:fragment="contenu">
+	<div th:fragment="contenu">
 		<div class="question">
-        	<div class="text">[[${partie.questionEnCours.donnee}]]</div>
-        	
-        	</div>
-        	
-        	
-        	<form action="VoteJoueur" class="form">
-        	<div th:each="joueur : ${partie}">
-        <div class="reponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
-        </div>
-        
+			<div class="text">[[${partie.questionEnCours.donnee}]]</div>
 
-        
-                <input type="hidden" name="voteId" id="voteId">
-                <input class="button" type="submit" name="submitButton" value="VOTER" />
-            </form>
-        </div>
+		</div>
 
-    
+
+		<form action="VoteJoueur" class="form">
+			<div th:each="joueur : ${partie}">
+				<div class="reponse" th:id="${joueur.id}">[[${partie.reponse(joueur)}]]</div>
+			</div>
+
+
+
+			<input type="hidden" name="voteId" id="voteId"> <input
+				class="button" type="submit" name="submitButton" value="VOTER" />
+		</form>
+	</div>
+
+
 </body>
 <footer>
-        <a href="Score">Score</a>
+	<a href="Score">Score</a>
 </footer>
 
 </html>
