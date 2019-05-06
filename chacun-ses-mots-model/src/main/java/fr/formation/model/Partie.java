@@ -192,25 +192,35 @@ public class Partie {
 		String phrase = "";
 
 		phraseDecoupe = this.questionEnCours.getDonnee().split("_+");
-//		for(String s : phraseDecoupe) {
-//			System.out.println(s);
-//		}
-//		for(String s : j.getReponsesEcrites()) {
-//			System.out.println(s);
-//		}
-
+		
+		int in = this.getQuestionEnCours().getNbInput();
+		System.out.println("IN");
+		System.out.println(in);
+		for(String s : phraseDecoupe) {
+			System.out.println("phrase decoupée");
+			System.out.println(s);
+		}
+		for(String s : j.getReponsesEcrites()) {
+			System.out.println("Réponses du joueur");
+			System.out.println(s);
+		}
+		System.out.println("nbinput");
+		System.out.println(this.getQuestionEnCours().getNbInput());
 		// si ca commence par un underscore, mets la réponse en premier
 		if (phrase.startsWith("_")) {
-			for (int i = 0; i < this.questionEnCours.getNbInput() + 1; i++) {
+			for (int i = 0; i < in; i++) {
+				System.out.println("rempli" + i);
 				phrase = phrase + j.getReponsesEcrites().get(i) + phraseDecoupe[i];
 			}
 		} else {
 			// sinon met la phrase en premier
-			for (int i = 0; i < this.questionEnCours.getNbInput(); i++) {
+			for (int i = 0; i < in; i++) {
+				System.out.println("rempli" + i);
 				phrase = phrase + phraseDecoupe[i] + j.getReponsesEcrites().get(i);
 			}
 			// si se finit par un point rajoute le point
-			if (!(phrase.endsWith("_"))) {
+			if (!(phrase.endsWith("_")) && !(phrase.startsWith("_"))) {
+				System.out.println("rempli der");
 				phrase = phrase + phraseDecoupe[phraseDecoupe.length - 1];
 			}
 		}

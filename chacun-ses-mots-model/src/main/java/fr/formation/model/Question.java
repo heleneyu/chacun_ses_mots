@@ -62,7 +62,7 @@ public class Question {
 		if(this.getDonnee().endsWith("_") || this.getDonnee().endsWith(" ")) {
 			this.setDonnee(this.getDonnee() + ".");
 		}
-		this.setNbInput(this.getDonnee().split("_+").length-1);
+		this.setNbInput(this.getDonnee().split("_+").length);
 		//System.out.println(this.getDonnee());
 	}
 	

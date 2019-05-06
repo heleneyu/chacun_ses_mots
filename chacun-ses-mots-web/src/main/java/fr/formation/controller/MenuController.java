@@ -95,6 +95,7 @@ public class MenuController {
 		List<Question> q = daoQuestion.findAll();
 		p.setQuestionEnCours(q.get(r.nextInt(q.size())));
 		p.getQuestionEnCours().setNbInput();
+		System.out.println("INPOUTS" + p.getQuestionEnCours().getNbInput());
 		Joueur j = (Joueur) session.getAttribute("joueur");
 		j.setPartie(daoPartie.save(p));
 		daoJoueur.save(j);

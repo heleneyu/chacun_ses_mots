@@ -65,19 +65,25 @@ public class JeuController {
 			Model model) {	
 		
 		Joueur j = (Joueur) session.getAttribute("joueur");
-		Partie p = j.getPartie();
+		Partie p = (Partie) session.getAttribute("partie");
+		p = daoPartie.findByIdWithJoueurs(p.getId());
 		
-		for(int i=0; i<p.getQuestionEnCours().getNbInput(); i++) {
-			if(ids[i] != 0) {//si le joueur a choisi une ou plusieurs cartes reponse
+		for(int i=0; i<p.getQuestionEnCours().getNbInput() +1 ; i++) {
+			if(ids.length != 0) {//si le joueur a choisi une ou plusieurs cartes reponse
 				j.getReponsesEcrites().add(daoReponse.findById(ids[i]).get().getDonnee());
+				System.out.println("reponse écrite "+i);
+				System.out.println(daoReponse.findById(ids[i]).get().getDonnee());
 			}
 			else {//si le champ libre est remplis
 				j.getReponsesEcrites().add(textes[i]);
+				System.out.println("reponse texte "+i);
+				System.out.println(textes[i]);
 			}
 		}
-		
+		System.out.println(p.reponse(j));
 		daoJoueur.save(j);
 		model.addAttribute("partie", p);
+		model.addAttribute("joueur", j);
 		return "csmVoteJoueur";
 	}
 	

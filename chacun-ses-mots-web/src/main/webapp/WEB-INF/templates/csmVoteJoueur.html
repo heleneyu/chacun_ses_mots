@@ -16,12 +16,10 @@
 
 
 		<form action="VoteJoueur" class="form">
-			<div th:each="joueur : ${partie}">
+			<div th:each="joueur : ${partie.getJoueurs()}">
+				<div>[[$joueur.getReponsesEcrites[0]]]</div>
 				<div class="reponse" th:id="${joueur.id}">[[${partie.reponse(joueur)}]]</div>
 			</div>
-
-
-
 			<input type="hidden" name="voteId" id="voteId"> <input
 				class="button" type="submit" name="submitButton" value="VOTER" />
 		</form>
