@@ -3,7 +3,7 @@
 	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 
 <head>
-<title>Chacun ses mots - Tour []</title>
+<title>Chacun ses mots - Tour [[${partie.tourEnCours}]]</title>
 </head>
 
 <body>
@@ -15,11 +15,11 @@
 		<h1>Joueur A</h1>
 		<header> </header>
 		<div class="question">
-			<div type="text">[[${partie.questionEnCours.donnee]]</div>
+			<div class="text">[[${partie.questionEnCours.donnee}]]</div>
 		</div>
 		
-		<div th:each="carte : ${joueur.main}">
-			<div class="carteReponse" th:id="${carte.id}"></div>
+		<div th:each="carte : ${main}">
+			<div class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
 		</div>
 
 
