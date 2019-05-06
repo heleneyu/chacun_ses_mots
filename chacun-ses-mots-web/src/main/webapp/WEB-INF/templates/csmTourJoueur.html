@@ -3,7 +3,7 @@
 	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 
 <head>
-<title>Chacun ses mots - Tour</title>
+<title>Chacun ses mots - Tour []</title>
 </head>
 
 <body>
@@ -15,19 +15,17 @@
 		<h1>Joueur A</h1>
 		<header> </header>
 		<div class="question">
-			<div type="text">J'aime beaucoup ___.</div>
+			<div type="text">[[${partie.questionEnCours.donnee]]</div>
 		</div>
-		<div class="carteReponse" cid="1">Unlock !</div>
+		
+		<div th:each="carte : ${joueur.main}">
+			<div class="carteReponse" th:id="${carte.id}"></div>
+		</div>
 
-		<div class="carteReponse" cid="2">les chats</div>
-
-		<div class="carteReponse" cid="3">les cookies</div>
-
-		<div class="carteReponse" cid="4">JAVA</div>
 
 		<section>
 
-			<form action="csmVoteJoueur.html" class="form">
+			<form action="jouer" class="form">
 				<div>
 					<input type="text" id="reponselibreinput"
 						placeholder="OU entrez votre saisie">
@@ -37,7 +35,7 @@
 			</form>
 
 			<div>
-				<a href="csmVoteJoueur.html">Vote</a>
+				<a href="csmVoteJoueur">Vote</a>
 
 			</div>
 
