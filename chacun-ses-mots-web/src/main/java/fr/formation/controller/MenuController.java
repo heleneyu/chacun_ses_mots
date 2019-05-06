@@ -103,7 +103,7 @@ public class MenuController {
 		model.addAttribute("partie", p);
 		
 //		}
-		return "csmPartie";
+		return "redirect:/tour";
 	}
 	
 	@GetMapping({"/partie"})
