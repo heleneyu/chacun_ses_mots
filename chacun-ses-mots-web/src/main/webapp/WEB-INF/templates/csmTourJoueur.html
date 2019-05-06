@@ -12,7 +12,7 @@
 	<div th:fragment="contenu">
 
 <section>
-		<h1>Joueur A</h1>
+		<h1>[[${joueur?.pseudo}]]</h1>
 		<header> </header>
 		<div class="question">
 			<div class="text">[[${partie.questionEnCours.donnee}]]</div>
