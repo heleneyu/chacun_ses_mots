@@ -19,13 +19,13 @@
 		</div>
 		
 		<div th:each="carte : ${main}">
-			<div class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
+			<div name="carteids" class="carteReponse" th:id="${carte.id}">[[${carte.donnee}]]</div>
 		</div>
 
 
 			<form action="jouer" class="form">
 				<div>
-					<input type="text" id="reponselibreinput"
+					<input name="textes" type="text" id="reponselibreinput"
 						placeholder="OU entrez votre saisie">
 				</div>
 				<button type="submit" value="ENVOYER" id="tour-submit-button">ENVOYER</button>
