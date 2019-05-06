@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="csmStyle.css">
 <title>Chacun ses mots - Profil</title>
 </head>
 <body>
 	<div th:fragment="contenu">
 		<section>
 			<div>
-				<h1>VOTRE PROFIL</h1>
-
 				<div>
 					<h2>Informations personnelles</h2>
-					<header>
-						<header>
+					<header> </header>
 				</div>
 				<table>
 					<tr>
@@ -25,63 +19,40 @@
 						<th>Mot de passe</th>
 					</tr>
 					<tr>
-						<th>LE PSEUDO#####</th>
-						<th>###### <br> 
-						<a href="changepassword.html"><button
-									type="submit">Changer le mot de passe</a>
-						</th>
+						<td>bla bla</td>
+						<td>bla bla<br> <a href="changepassword">Changer le mot de passe</a>
+						</td>
 					</tr>
 				</table>
 
 			</div>
 			<div>
 				<h2>Informations parties</h2>
-				<header>
-					</header>
+				<header> </header>
 			</div>
 			<div>
 
 				<table>
 					<tr>
-						<th>Parties jouÃ©es</th>
-						<th>######</th>
-					</tr>
-					<tr>
-						<th>Parties gagnÃ©es</th>
-						<th>######</th>
-					</tr>
-					<tr>
+						<th>Parties jouées</th>
+						<th>Parties gagnées</th>
 						<th>Score moyen</th>
-						<th>######</th>
 					</tr>
+					
+					<tr>
+						<td>######</td>
+						<td>######</td>
+						<td>######</td>
+					</tr>
+			
 				</table>
 			</div>
 
-			<div>
-				<h2>Partie en cours</h2>
-				<header>
-					</header>
-			</div>
-			<div>
-				<table>
-					<tr>
-						<th>Nombre de tours</th>
-						<th>######</th>
-					</tr>
-					<tr>
-						<th>Tour en cours</th>
-						<th>######</th>
-					</tr>
-				</table>
-				<div>
-					<button type="submit">Rejoindre partie</button>
-				</div>
-			</div>
 
 			<div>
 				<button type="submit" class="button-secondary">Retour</button>
 			</div>
-				</section>
+		</section>
 	</div>
 
 	<script src="ajax.js"></script>
