@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
+<head>
+<title>Liste des personnes</title>
+</head>
+<body>
+	<div th:fragment="contenu">
+		<a href="ajouter-joueur" class="button">Ajouter un joueur</a>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Pseudo</th>
+					<th>Type</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tr th:each="joueur : ${joueurs}">
+				<td th:text="${joueur.getId()}"></td>
+				<td th:text="${joueur.getNom()}"></td>
+				<td th:text="${joueur.getPrenom()}"></td>
+				<td><a
+					th:href="@{profil/{joueurId}(joueurId=${joueur.id})}"
+					th:text="${joueur.getPseudo()}"></a></td>
+				<td th:text="${joueur.getType()}"></td>
+				<td><a
+					th:href="@{supprimer-joueur/{joueurId}(joueurId=${joueur.id})}" class="button">Supprimer</a>
+				</td>
+				<td><a
+					th:href="@{modifier-joueur/{joueurId}(joueurId=${joueur.id})}"
+					class="button">Modifier</a></td>
+			</tr>
+		</table>
+		<a href="home" class="button">Retourner à l'écran d'accueil</a>
+	</div>
+</body>
+</html>
