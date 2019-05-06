@@ -7,12 +7,15 @@
 </head>
 <body>
 	<div th:fragment="contenu">
-		<div class="rowJoueur">
-			<div class="joueurName">Tatata</div>
-			<div class="joueurScore">2</div>
+		<div class="rowJoueur" th:each="joueur : ${joueurs}">
+			<div class="joueurName">[[${joueur.pseudo}]]</div>
+			<div class="joueurScore">[[${joueur.score}]]</div>
 		</div>
-		<div class="backToGame">
-			<a href="csmTourJoueur"></a>
+		<div th:if="${tousVotes == true}" class="backToGame">
+			<a href="tour">Tour suivant</a>
+		</div>
+		<div th:if="${tousVotes == false}" class="backToGame">
+			<a href="vote">Rafraîchir</a>
 		</div>
 	</div>
 </body>

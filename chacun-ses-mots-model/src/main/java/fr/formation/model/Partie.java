@@ -47,6 +47,9 @@ public class Partie {
 
 	@Column(name = "PA_ETAT_PARTIE")
 	private int etatPartie;
+	
+	@Column(name="PA_VOTES")
+	private int votes = 0;
 
 	@ManyToOne
 	@JoinColumn(name = "PA_QUESTION_ID")
@@ -356,6 +359,14 @@ public class Partie {
 
 	public void setQuestionEnCours(Question questionEnCours) {
 		this.questionEnCours = questionEnCours;
+	}
+
+	public int getVotes() {
+		return votes;
+	}
+
+	public void setVotes(int votes) {
+		this.votes = votes;
 	}
 
 }
