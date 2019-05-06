@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div th:fragment="contenu">
-		<a th:href="csmAjouter-reponse" class="btn btn-warning">Ajouter une reponse</a>
+		<a th:href="ajouter-reponse" class="button">Ajouter une reponse</a>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -17,17 +17,17 @@
 			</thead>
 			<tr th:each="reponse : ${reponses}">
 				<td th:text="${reponse.getId()}"></td>
-				<td><a th:href="@{csmreponse/{reponseId}(reponseId=${reponse.id})}"
+				<td><a th:href="@{reponse/{reponseId}(reponseId=${reponse.id})}"
 					th:text="${reponse.getDonnee()}"></a></td>
-					<td><a th:href="@{csmreponse/{reponseId}(reponseId=${reponse.id})}"
+					<td><a th:href="@{reponse/{reponseId}(reponseId=${reponse.id})}"
 					th:text="${reponse.getTypeDonnee()}"></a></td>
-				<td><a th:href="@{csmSupprimer-reponse/{reponseId}(reponseId=${reponse.id})}"
-					 class="btn btn-warning">Supprimer</a>
-				<td><a th:href="@{csmModifier-reponse/{reponseId}(reponseId=${reponse.id})}" 
-					class="btn btn-info">Modifier</a></td>
+				<td><a th:href="@{supprimer-reponse/{reponseId}(reponseId=${reponse.id})}"
+					 class="button">Supprimer</a>
+				<td><a th:href="@{modifier-reponse/{reponseId}(reponseId=${reponse.id})}" 
+					class="button">Modifier</a></td>
 			</tr>
 		</table>
-		<a th:href="csmHome" class="btn btn-warning">Retourner à l'écran d'accueil</a>
+		<a th:href="home" class="button">Retourner à l'écran d'accueil</a>
 	</div>
 </body>
 </html>

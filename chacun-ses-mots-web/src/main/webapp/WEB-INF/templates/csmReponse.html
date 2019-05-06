@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{csmLayout.html :: layout(~{::title}, ~{::contenu})}">
 <head>
-<title>reponse</title>
+<title>Reponse</title>
 </head>
 <body>
 	<div th:fragment="contenu" class="container">
 		<h1 th:value="'reponse' + ${reponse?.id}"></h1>
 		<h2>[[${reponse?.donnee}]]</h2>
 		<h2>[[${reponse?.typeDonnee}]]</h2>
-		<a th:href="csmListe-reponse" class="btn btn-info">Liste des
+		<a th:href="liste-reponse" class="button">Liste des
 			reponses</a>
 	</div>
 </body>
