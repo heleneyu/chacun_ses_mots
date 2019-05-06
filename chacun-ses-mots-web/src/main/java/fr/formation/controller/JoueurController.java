@@ -39,7 +39,6 @@ public class JoueurController {
 		
 		if (daoJoueur.findByPseudoAndMotDePasse(j.getPseudo(), j.getMotDePasse()).isPresent()) {
 			Joueur joueur = daoJoueur.findByPseudoAndMotDePasse(j.getPseudo(), j.getMotDePasse()).get();
-			joueur.setLogged(true);
 			session.setAttribute("joueur",joueur);
 			daoJoueur.save(joueur);
 			return "redirect:/profil/" + joueur.getId();
@@ -53,6 +52,8 @@ public class JoueurController {
 //	public Joueur getJoueur(int id) {
 //		return daoJoueur.findById(id).get();
 //	}
+	
+	
 	
 	@GetMapping({ "/profil/{idJoueur}" })
 	public String profil(@PathVariable int idJoueur, Model model) {
