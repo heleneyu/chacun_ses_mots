@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -47,7 +48,7 @@ public class Partie {
 	@Column(name = "PA_ETAT_PARTIE")
 	private int etatPartie;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "PA_QUESTION_ID")
 	private Question questionEnCours;
 

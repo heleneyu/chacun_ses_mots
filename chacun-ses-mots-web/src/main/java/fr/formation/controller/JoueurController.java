@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.annotation.SessionScope;
 
 import fr.formation.model.Joueur;
+import fr.formation.model.Question;
 import fr.formation.projet.IDAOJoueur;
 
 @Controller
@@ -54,13 +55,43 @@ public class JoueurController {
 //	}
 	
 	
-	
 	@GetMapping({ "/profil/{idJoueur}" })
 	public String profil(@PathVariable int idJoueur, Model model) {
-		
 		model.addAttribute("joueur", daoJoueur.findById(idJoueur).get());
 		return "csmProfil";
-
+	}
+	
+	@GetMapping({"/liste-joueur", "/liste-joueur/{idjoueur}"})
+	public String listejoueur(Model model) {
+		model.addAttribute("joueurs", daoJoueur.findAll());
+		return "csmListe-joueur";
+	}
+	
+	@GetMapping({"/supprimer-joueur","/supprimer-joueur/{idjoueur}"})
+	public String supprimerjoueur(@PathVariable int idjoueur) {
+		daoJoueur.deleteById(idjoueur);
+		return "redirect:/liste-joueur";
 	}
 
+	@GetMapping("/ajouter-joueur") //quand on est connecté en tant qu'admin
+	public String ajouterjoueur() {
+		return "csmModifier-joueur";
+	}
+	@PostMapping("/ajouter-joueur")
+	public String ajouterjoueur(@ModelAttribute Joueur p) {
+		daoJoueur.save(p);
+		return "redirect:/liste-joueur";
+	}
+	
+	@GetMapping({"/modifier-joueur/", "/modifier-joueur/{idjoueur}"}) //quand on est connecté en tant qu'admin
+	public String modifierjoueur(Model model, @PathVariable int idjoueur) {
+		model.addAttribute("joueur", daoJoueur.findById(idjoueur).get());
+		return "csmModifier-joueur";
+	}
+	@PostMapping({"/modifier-joueur/", "/modifier-joueur/{idjoueur}"})
+	public String modifierjoueurPost(@ModelAttribute Joueur q, @PathVariable int idjoueur) {
+		q.setId(idjoueur);
+		daoJoueur.save(q);
+		return "redirect:/liste-joueur";
+	}
 }

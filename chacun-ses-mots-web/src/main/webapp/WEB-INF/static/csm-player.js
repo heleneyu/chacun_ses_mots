@@ -60,8 +60,7 @@
 //            )
 //        }
 //    )
-//}
-//
+//};
 //
 //async function addListenersToTour2() {
 //
